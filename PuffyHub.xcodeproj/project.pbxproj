@@ -7,7 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C4C0C4C62C0C578A00C61F4C /* PuffyHub Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C4C0C4C52C0C578A00C61F4C /* PuffyHub Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C44F66452C10F86400D5B653 /* BetterCodable in Frameworks */ = {isa = PBXBuildFile; productRef = C44F66442C10F86400D5B653 /* BetterCodable */; };
+		C44F664A2C10F8ED00D5B653 /* MKNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66492C10F8ED00D5B653 /* MKNote.swift */; };
+		C44F664C2C10F90A00D5B653 /* MKEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F664B2C10F90A00D5B653 /* MKEmoji.swift */; };
+		C44F664E2C10F91C00D5B653 /* MKUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F664D2C10F91C00D5B653 /* MKUser.swift */; };
+		C44F66502C10F95D00D5B653 /* MKInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F664F2C10F95D00D5B653 /* MKInstance.swift */; };
+		C44F66522C10F9EC00D5B653 /* MKDriveFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66512C10F9EC00D5B653 /* MKDriveFile.swift */; };
+		C44F66552C11A64D00D5B653 /* TimeLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66542C11A64D00D5B653 /* TimeLineView.swift */; };
+		C44F66572C11BC4600D5B653 /* PostRichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66562C11BC4600D5B653 /* PostRichText.swift */; };
+		C44F665A2C11CAB700D5B653 /* RichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66592C11CAB700D5B653 /* RichText.swift */; };
+		C44F665D2C11E52500D5B653 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F665C2C11E52500D5B653 /* IntroView.swift */; };
+		C44F665F2C12026200D5B653 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F665E2C12026200D5B653 /* AboutView.swift */; };
+		C48D90C12C0C65700001D4FD /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D90C02C0C65700001D4FD /* PostItem.swift */; };
+		C48D90C42C0C701A0001D4FD /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C32C0C701A0001D4FD /* SDWebImageSwiftUI */; };
+		C48D90C92C0C88150001D4FD /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C82C0C88150001D4FD /* SDWebImageWebPCoder */; };
 		C4C0C4CB2C0C578A00C61F4C /* PuffyHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C0C4CA2C0C578A00C61F4C /* PuffyHubApp.swift */; };
 		C4C0C4CD2C0C578A00C61F4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C0C4CC2C0C578A00C61F4C /* ContentView.swift */; };
 		C4C0C4CF2C0C578B00C61F4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4C0C4CE2C0C578B00C61F4C /* Assets.xcassets */; };
@@ -18,13 +31,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C4C0C4C72C0C578A00C61F4C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C4C0C4B92C0C578A00C61F4C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C4C0C4C42C0C578A00C61F4C;
-			remoteInfo = "PuffyHub Watch App";
-		};
 		C4C0C4D82C0C578C00C61F4C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C4C0C4B92C0C578A00C61F4C /* Project object */;
@@ -41,22 +47,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		C4C0C4EE2C0C578C00C61F4C /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				C4C0C4C62C0C578A00C61F4C /* PuffyHub Watch App.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		C4C0C4BF2C0C578A00C61F4C /* PuffyHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PuffyHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C44F66492C10F8ED00D5B653 /* MKNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKNote.swift; sourceTree = "<group>"; };
+		C44F664B2C10F90A00D5B653 /* MKEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKEmoji.swift; sourceTree = "<group>"; };
+		C44F664D2C10F91C00D5B653 /* MKUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKUser.swift; sourceTree = "<group>"; };
+		C44F664F2C10F95D00D5B653 /* MKInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKInstance.swift; sourceTree = "<group>"; };
+		C44F66512C10F9EC00D5B653 /* MKDriveFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKDriveFile.swift; sourceTree = "<group>"; };
+		C44F66542C11A64D00D5B653 /* TimeLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineView.swift; sourceTree = "<group>"; };
+		C44F66562C11BC4600D5B653 /* PostRichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRichText.swift; sourceTree = "<group>"; };
+		C44F66592C11CAB700D5B653 /* RichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichText.swift; sourceTree = "<group>"; };
+		C44F665C2C11E52500D5B653 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		C44F665E2C12026200D5B653 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		C48D90C02C0C65700001D4FD /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
 		C4C0C4C52C0C578A00C61F4C /* PuffyHub Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PuffyHub Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C0C4CA2C0C578A00C61F4C /* PuffyHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuffyHubApp.swift; sourceTree = "<group>"; };
 		C4C0C4CC2C0C578A00C61F4C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44F66452C10F86400D5B653 /* BetterCodable in Frameworks */,
+				C48D90C92C0C88150001D4FD /* SDWebImageWebPCoder in Frameworks */,
+				C48D90C42C0C701A0001D4FD /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,12 +99,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C44F663E2C10F77900D5B653 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C44F663F2C10F7AF00D5B653 /* Structs */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		C44F663F2C10F7AF00D5B653 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				C44F66492C10F8ED00D5B653 /* MKNote.swift */,
+				C44F664B2C10F90A00D5B653 /* MKEmoji.swift */,
+				C44F664D2C10F91C00D5B653 /* MKUser.swift */,
+				C44F664F2C10F95D00D5B653 /* MKInstance.swift */,
+				C44F66512C10F9EC00D5B653 /* MKDriveFile.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		C44F66532C11A59D00D5B653 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C44F66542C11A64D00D5B653 /* TimeLineView.swift */,
+				C44F66562C11BC4600D5B653 /* PostRichText.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C44F66582C11CAA700D5B653 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C44F66592C11CAB700D5B653 /* RichText.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C44F665B2C11E51500D5B653 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C44F665C2C11E52500D5B653 /* IntroView.swift */,
+				C44F665E2C12026200D5B653 /* AboutView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C4C0C4B82C0C578A00C61F4C = {
 			isa = PBXGroup;
 			children = (
-				C4C0C4C92C0C578A00C61F4C /* PuffyHub Watch App */,
-				C4C0C4DA2C0C578C00C61F4C /* PuffyHub Watch AppTests */,
-				C4C0C4E42C0C578C00C61F4C /* PuffyHub Watch AppUITests */,
+				C44F663E2C10F77900D5B653 /* Frameworks */,
+				C4C0C4C92C0C578A00C61F4C /* PuffyHub */,
+				C4C0C4DA2C0C578C00C61F4C /* AppTests */,
+				C4C0C4E42C0C578C00C61F4C /* AppUITests */,
 				C4C0C4C02C0C578A00C61F4C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,7 +159,6 @@
 		C4C0C4C02C0C578A00C61F4C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C4C0C4BF2C0C578A00C61F4C /* PuffyHub.app */,
 				C4C0C4C52C0C578A00C61F4C /* PuffyHub Watch App.app */,
 				C4C0C4D72C0C578C00C61F4C /* PuffyHub Watch AppTests.xctest */,
 				C4C0C4E12C0C578C00C61F4C /* PuffyHub Watch AppUITests.xctest */,
@@ -115,15 +166,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C4C0C4C92C0C578A00C61F4C /* PuffyHub Watch App */ = {
+		C4C0C4C92C0C578A00C61F4C /* PuffyHub */ = {
 			isa = PBXGroup;
 			children = (
+				C44F665B2C11E51500D5B653 /* Views */,
+				C44F66582C11CAA700D5B653 /* Utils */,
+				C44F66532C11A59D00D5B653 /* Components */,
 				C4C0C4CA2C0C578A00C61F4C /* PuffyHubApp.swift */,
 				C4C0C4CC2C0C578A00C61F4C /* ContentView.swift */,
 				C4C0C4CE2C0C578B00C61F4C /* Assets.xcassets */,
 				C4C0C4D02C0C578B00C61F4C /* Preview Content */,
+				C48D90C02C0C65700001D4FD /* PostItem.swift */,
 			);
-			path = "PuffyHub Watch App";
+			path = PuffyHub;
 			sourceTree = "<group>";
 		};
 		C4C0C4D02C0C578B00C61F4C /* Preview Content */ = {
@@ -134,43 +189,26 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C4C0C4DA2C0C578C00C61F4C /* PuffyHub Watch AppTests */ = {
+		C4C0C4DA2C0C578C00C61F4C /* AppTests */ = {
 			isa = PBXGroup;
 			children = (
 				C4C0C4DB2C0C578C00C61F4C /* PuffyHub_Watch_AppTests.swift */,
 			);
-			path = "PuffyHub Watch AppTests";
+			path = AppTests;
 			sourceTree = "<group>";
 		};
-		C4C0C4E42C0C578C00C61F4C /* PuffyHub Watch AppUITests */ = {
+		C4C0C4E42C0C578C00C61F4C /* AppUITests */ = {
 			isa = PBXGroup;
 			children = (
 				C4C0C4E52C0C578C00C61F4C /* PuffyHub_Watch_AppUITests.swift */,
 				C4C0C4E72C0C578C00C61F4C /* PuffyHub_Watch_AppUITestsLaunchTests.swift */,
 			);
-			path = "PuffyHub Watch AppUITests";
+			path = AppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C4C0C4BE2C0C578A00C61F4C /* PuffyHub */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C4C0C4EF2C0C578C00C61F4C /* Build configuration list for PBXNativeTarget "PuffyHub" */;
-			buildPhases = (
-				C4C0C4BD2C0C578A00C61F4C /* Resources */,
-				C4C0C4EE2C0C578C00C61F4C /* Embed Watch Content */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C4C0C4C82C0C578A00C61F4C /* PBXTargetDependency */,
-			);
-			name = PuffyHub;
-			productName = PuffyHub;
-			productReference = C4C0C4BF2C0C578A00C61F4C /* PuffyHub.app */;
-			productType = "com.apple.product-type.application.watchapp2-container";
-		};
 		C4C0C4C42C0C578A00C61F4C /* PuffyHub Watch App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4C0C4EB2C0C578C00C61F4C /* Build configuration list for PBXNativeTarget "PuffyHub Watch App" */;
@@ -184,6 +222,11 @@
 			dependencies = (
 			);
 			name = "PuffyHub Watch App";
+			packageProductDependencies = (
+				C48D90C32C0C701A0001D4FD /* SDWebImageSwiftUI */,
+				C48D90C82C0C88150001D4FD /* SDWebImageWebPCoder */,
+				C44F66442C10F86400D5B653 /* BetterCodable */,
+			);
 			productName = "PuffyHub Watch App";
 			productReference = C4C0C4C52C0C578A00C61F4C /* PuffyHub Watch App.app */;
 			productType = "com.apple.product-type.application";
@@ -234,9 +277,6 @@
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
-					C4C0C4BE2C0C578A00C61F4C = {
-						CreatedOnToolsVersion = 15.3;
-					};
 					C4C0C4C42C0C578A00C61F4C = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -259,11 +299,15 @@
 				Base,
 			);
 			mainGroup = C4C0C4B82C0C578A00C61F4C;
+			packageReferences = (
+				C48D90C22C0C701A0001D4FD /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				C48D90C72C0C88150001D4FD /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */,
+				C44F66432C10F86400D5B653 /* XCRemoteSwiftPackageReference "BetterCodable" */,
+			);
 			productRefGroup = C4C0C4C02C0C578A00C61F4C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C4C0C4BE2C0C578A00C61F4C /* PuffyHub */,
 				C4C0C4C42C0C578A00C61F4C /* PuffyHub Watch App */,
 				C4C0C4D62C0C578C00C61F4C /* PuffyHub Watch AppTests */,
 				C4C0C4E02C0C578C00C61F4C /* PuffyHub Watch AppUITests */,
@@ -272,13 +316,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C4C0C4BD2C0C578A00C61F4C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C4C0C4C32C0C578A00C61F4C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,7 +346,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44F664E2C10F91C00D5B653 /* MKUser.swift in Sources */,
+				C48D90C12C0C65700001D4FD /* PostItem.swift in Sources */,
+				C44F66572C11BC4600D5B653 /* PostRichText.swift in Sources */,
+				C44F66502C10F95D00D5B653 /* MKInstance.swift in Sources */,
+				C44F665F2C12026200D5B653 /* AboutView.swift in Sources */,
+				C44F664C2C10F90A00D5B653 /* MKEmoji.swift in Sources */,
+				C44F665D2C11E52500D5B653 /* IntroView.swift in Sources */,
+				C44F664A2C10F8ED00D5B653 /* MKNote.swift in Sources */,
 				C4C0C4CD2C0C578A00C61F4C /* ContentView.swift in Sources */,
+				C44F66522C10F9EC00D5B653 /* MKDriveFile.swift in Sources */,
+				C44F66552C11A64D00D5B653 /* TimeLineView.swift in Sources */,
+				C44F665A2C11CAB700D5B653 /* RichText.swift in Sources */,
 				C4C0C4CB2C0C578A00C61F4C /* PuffyHubApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,11 +382,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C4C0C4C82C0C578A00C61F4C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C4C0C4C42C0C578A00C61F4C /* PuffyHub Watch App */;
-			targetProxy = C4C0C4C72C0C578A00C61F4C /* PBXContainerItemProxy */;
-		};
 		C4C0C4D92C0C578C00C61F4C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C4C0C4C42C0C578A00C61F4C /* PuffyHub Watch App */;
@@ -410,6 +453,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
 		};
@@ -462,7 +506,9 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
@@ -473,7 +519,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PuffyHub Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PuffyHub/Preview Content\"";
 				DEVELOPMENT_TEAM = 644FU9Z647;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -484,7 +530,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -492,7 +538,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -503,7 +549,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PuffyHub Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PuffyHub/Preview Content\"";
 				DEVELOPMENT_TEAM = 644FU9Z647;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -514,7 +560,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -523,40 +569,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
-			};
-			name = Release;
-		};
-		C4C0C4F02C0C578C00C61F4C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 644FU9Z647;
-				INFOPLIST_KEY_CFBundleDisplayName = PuffyHub;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		C4C0C4F12C0C578C00C61F4C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 644FU9Z647;
-				INFOPLIST_KEY_CFBundleDisplayName = PuffyHub;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -665,15 +678,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C4C0C4EF2C0C578C00C61F4C /* Build configuration list for PBXNativeTarget "PuffyHub" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C4C0C4F02C0C578C00C61F4C /* Debug */,
-				C4C0C4F12C0C578C00C61F4C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		C4C0C4F22C0C578C00C61F4C /* Build configuration list for PBXNativeTarget "PuffyHub Watch AppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -693,6 +697,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C44F66432C10F86400D5B653 /* XCRemoteSwiftPackageReference "BetterCodable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marksands/BetterCodable";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
+		C48D90C22C0C701A0001D4FD /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		C48D90C72C0C88150001D4FD /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageWebPCoder";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.14.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C44F66442C10F86400D5B653 /* BetterCodable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C44F66432C10F86400D5B653 /* XCRemoteSwiftPackageReference "BetterCodable" */;
+			productName = BetterCodable;
+		};
+		C48D90C32C0C701A0001D4FD /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C48D90C22C0C701A0001D4FD /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		C48D90C82C0C88150001D4FD /* SDWebImageWebPCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C48D90C72C0C88150001D4FD /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */;
+			productName = SDWebImageWebPCoder;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C4C0C4B92C0C578A00C61F4C /* Project object */;
 }

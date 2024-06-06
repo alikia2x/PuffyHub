@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import UIKit
+import WatchKit
 
 @main
-struct PuffyHub_Watch_AppApp: App {
+struct PuffyHubApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+//                .environmentObject(AppSettings())
+                AboutView()
         }
     }
 }
