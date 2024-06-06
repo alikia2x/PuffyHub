@@ -18,6 +18,8 @@
 		C44F665A2C11CAB700D5B653 /* RichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66592C11CAB700D5B653 /* RichText.swift */; };
 		C44F665D2C11E52500D5B653 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F665C2C11E52500D5B653 /* IntroView.swift */; };
 		C44F665F2C12026200D5B653 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F665E2C12026200D5B653 /* AboutView.swift */; };
+		C44F66622C12161F00D5B653 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C44F66612C12161F00D5B653 /* LICENSE */; };
+		C44F66642C12314900D5B653 /* MKAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66632C12314900D5B653 /* MKAPIRequest.swift */; };
 		C48D90C12C0C65700001D4FD /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D90C02C0C65700001D4FD /* PostItem.swift */; };
 		C48D90C42C0C701A0001D4FD /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C32C0C701A0001D4FD /* SDWebImageSwiftUI */; };
 		C48D90C92C0C88150001D4FD /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C82C0C88150001D4FD /* SDWebImageWebPCoder */; };
@@ -58,6 +60,8 @@
 		C44F66592C11CAB700D5B653 /* RichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichText.swift; sourceTree = "<group>"; };
 		C44F665C2C11E52500D5B653 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		C44F665E2C12026200D5B653 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		C44F66612C12161F00D5B653 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C44F66632C12314900D5B653 /* MKAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKAPIRequest.swift; sourceTree = "<group>"; };
 		C48D90C02C0C65700001D4FD /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
 		C4C0C4C52C0C578A00C61F4C /* PuffyHub Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PuffyHub Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C0C4CA2C0C578A00C61F4C /* PuffyHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuffyHubApp.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				C44F66592C11CAB700D5B653 /* RichText.swift */,
+				C44F66632C12314900D5B653 /* MKAPIRequest.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -143,6 +148,14 @@
 				C44F665E2C12026200D5B653 /* AboutView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C44F66602C12160F00D5B653 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C44F66612C12161F00D5B653 /* LICENSE */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		C4C0C4B82C0C578A00C61F4C = {
@@ -169,6 +182,7 @@
 		C4C0C4C92C0C578A00C61F4C /* PuffyHub */ = {
 			isa = PBXGroup;
 			children = (
+				C44F66602C12160F00D5B653 /* Resources */,
 				C44F665B2C11E51500D5B653 /* Views */,
 				C44F66582C11CAA700D5B653 /* Utils */,
 				C44F66532C11A59D00D5B653 /* Components */,
@@ -320,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44F66622C12161F00D5B653 /* LICENSE in Resources */,
 				C4C0C4D22C0C578B00C61F4C /* Preview Assets.xcassets in Resources */,
 				C4C0C4CF2C0C578B00C61F4C /* Assets.xcassets in Resources */,
 			);
@@ -348,6 +363,7 @@
 			files = (
 				C44F664E2C10F91C00D5B653 /* MKUser.swift in Sources */,
 				C48D90C12C0C65700001D4FD /* PostItem.swift in Sources */,
+				C44F66642C12314900D5B653 /* MKAPIRequest.swift in Sources */,
 				C44F66572C11BC4600D5B653 /* PostRichText.swift in Sources */,
 				C44F66502C10F95D00D5B653 /* MKInstance.swift in Sources */,
 				C44F665F2C12026200D5B653 /* AboutView.swift in Sources */,

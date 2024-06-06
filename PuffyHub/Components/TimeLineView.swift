@@ -54,58 +54,48 @@ struct TimeLineView: View {
     }
     
     func loadData(sinceId: String? = nil) async {
-        guard let ServerURL = URL(string: server),
-              let ServerEndpoint = URL(string: "/api/", relativeTo: ServerURL),
-              let url = URL(string: APIString, relativeTo: ServerEndpoint) else {
-            print("Invalid URL")
+        let postBody = timelineRequest(
+            withRenotes: true,
+            limit: 10,
+            untilId: sinceId,
+            // Unfortunately, Misskey's untilId/sinceId doesn't make sense.
+            // All in all, this works.
+            allowPartial: true
+        )
+        if sinceId == nil {
+            loading = true
+        } else {
+            isLoadingMore = true
+        }
+        var response: RequestResponse = await MKAPIRequest(server: server, endpoint: APIString, postBody: postBody, token: token)
+        if response.success == false {
             return
         }
-
-        do {
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            let postBody = timelineRequest(
-                withRenotes: true,
-                limit: 10,
-                untilId: sinceId,
-                // Unfortunately, Misskey's untilId/sinceId doesn't make sense.
-                // All in all, this works.
-                allowPartial: true
-            )
-            request.httpBody = try JSONEncoder().encode(postBody)
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.setValue("Bearer " + token, forHTTPHeaderField: "Authorization")
-            if sinceId == nil {
-                loading = true
-            } else {
-                isLoadingMore = true
-            }
-            let (data, response) = try await URLSession.shared.data(for: request)
-            statusCode = (response as! HTTPURLResponse).statusCode
-            if let jsonArray = try? JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
-                var tempResults: [MKNote] = []
-                for jsonDict in jsonArray {
-                    if let postData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),
-                       let postItem = try? JSONDecoder().decode(MKNote.self, from: postData) {
-                        tempResults.append(postItem)
-                    } else {
-                        print("ERR:", jsonDict.keys)
-                    }
-                }
-                if sinceId == nil {
-                    results = tempResults
+        
+        statusCode = (response.response as! HTTPURLResponse).statusCode
+        
+        if let jsonArray = try? JSONSerialization.jsonObject(with: response.data!, options: []) as? [[String: Any]] {
+            var tempResults: [MKNote] = []
+            for jsonDict in jsonArray {
+                if let postData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),
+                   let postItem = try? JSONDecoder().decode(MKNote.self, from: postData) {
+                    tempResults.append(postItem)
                 } else {
-                    results.append(contentsOf: tempResults)
+                    print("ERR:", jsonDict.keys)
                 }
-                if let last = tempResults.last {
-                    lastLoadedId = last.id
-                }
-            } else {
-                print("Failed to parse JSON")
             }
-        } catch {
-            print("Invalid data")
+            if sinceId == nil {
+                results = tempResults
+            } else {
+                results.append(contentsOf: tempResults)
+            }
+            if let last = tempResults.last {
+                lastLoadedId = last.id
+            }
+        } else {
+            print("Failed to parse JSON")
         }
+        
         if sinceId == nil {
             loading = false
         } else {

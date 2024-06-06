@@ -13,9 +13,8 @@ import WatchKit
 struct PuffyHubApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-//                .environmentObject(AppSettings())
-                AboutView()
+            ContentView()
+                .environmentObject(AppSettings())
         }
     }
 }
