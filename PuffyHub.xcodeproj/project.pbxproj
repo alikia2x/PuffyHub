@@ -20,6 +20,7 @@
 		C44F665F2C12026200D5B653 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F665E2C12026200D5B653 /* AboutView.swift */; };
 		C44F66622C12161F00D5B653 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C44F66612C12161F00D5B653 /* LICENSE */; };
 		C44F66642C12314900D5B653 /* MKAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66632C12314900D5B653 /* MKAPIRequest.swift */; };
+		C47072F02C1388E300CEBE51 /* TimeLineControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47072EF2C1388E300CEBE51 /* TimeLineControls.swift */; };
 		C48D90C12C0C65700001D4FD /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D90C02C0C65700001D4FD /* PostItem.swift */; };
 		C48D90C42C0C701A0001D4FD /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C32C0C701A0001D4FD /* SDWebImageSwiftUI */; };
 		C48D90C92C0C88150001D4FD /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C82C0C88150001D4FD /* SDWebImageWebPCoder */; };
@@ -28,6 +29,7 @@
 		C4C0C4CD2C0C578A00C61F4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C0C4CC2C0C578A00C61F4C /* ContentView.swift */; };
 		C4C0C4CF2C0C578B00C61F4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4C0C4CE2C0C578B00C61F4C /* Assets.xcassets */; };
 		C4C0C4D22C0C578B00C61F4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4C0C4D12C0C578B00C61F4C /* Preview Assets.xcassets */; };
+		C4E97CEB2C13AF8D006642C7 /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E97CEA2C13AF8D006642C7 /* MeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,12 +45,14 @@
 		C44F665E2C12026200D5B653 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		C44F66612C12161F00D5B653 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C44F66632C12314900D5B653 /* MKAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKAPIRequest.swift; sourceTree = "<group>"; };
+		C47072EF2C1388E300CEBE51 /* TimeLineControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineControls.swift; sourceTree = "<group>"; };
 		C48D90C02C0C65700001D4FD /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
 		C4C0C4C52C0C578A00C61F4C /* PuffyHub Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PuffyHub Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C0C4CA2C0C578A00C61F4C /* PuffyHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuffyHubApp.swift; sourceTree = "<group>"; };
 		C4C0C4CC2C0C578A00C61F4C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C4C0C4CE2C0C578B00C61F4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4C0C4D12C0C578B00C61F4C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C4E97CEA2C13AF8D006642C7 /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +93,10 @@
 		C44F66532C11A59D00D5B653 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C48D90C02C0C65700001D4FD /* PostItem.swift */,
 				C44F66542C11A64D00D5B653 /* TimeLine.swift */,
 				C44F66562C11BC4600D5B653 /* PostRichText.swift */,
+				C47072EF2C1388E300CEBE51 /* TimeLineControls.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -109,6 +115,7 @@
 			children = (
 				C44F665C2C11E52500D5B653 /* IntroView.swift */,
 				C44F665E2C12026200D5B653 /* AboutView.swift */,
+				C4E97CEA2C13AF8D006642C7 /* MeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,7 +156,6 @@
 				C4C0C4CC2C0C578A00C61F4C /* ContentView.swift */,
 				C4C0C4CE2C0C578B00C61F4C /* Assets.xcassets */,
 				C4C0C4D02C0C578B00C61F4C /* Preview Content */,
-				C48D90C02C0C65700001D4FD /* PostItem.swift */,
 			);
 			path = PuffyHub;
 			sourceTree = "<group>";
@@ -247,7 +253,9 @@
 			files = (
 				C44F664E2C10F91C00D5B653 /* MKUser.swift in Sources */,
 				C48D90C12C0C65700001D4FD /* PostItem.swift in Sources */,
+				C47072F02C1388E300CEBE51 /* TimeLineControls.swift in Sources */,
 				C44F66642C12314900D5B653 /* MKAPIRequest.swift in Sources */,
+				C4E97CEB2C13AF8D006642C7 /* MeView.swift in Sources */,
 				C44F66572C11BC4600D5B653 /* PostRichText.swift in Sources */,
 				C44F66502C10F95D00D5B653 /* MKInstance.swift in Sources */,
 				C44F665F2C12026200D5B653 /* AboutView.swift in Sources */,
@@ -402,7 +410,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.1;
+				MARKETING_VERSION = 0.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -410,7 +418,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
 		};
@@ -432,7 +440,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.1;
+				MARKETING_VERSION = 0.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -441,7 +449,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};

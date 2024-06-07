@@ -113,5 +113,7 @@ struct IntroView: View {
 }
 
 #Preview {
-    return IntroView()
+    NavigationStack {
+        IntroView()
+    }
 }

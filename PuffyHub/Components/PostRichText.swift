@@ -14,13 +14,19 @@ import SDWebImageSwiftUI
 import SDWebImageWebPCoder
 
 struct PostRichText: View {
+    func handleURL(_ url: URL) -> OpenURLAction.Result {
+        print("Handle \(url) somehow")
+        openLink(url: url.absoluteString)
+        return .handled
+    }
     var rawText: String
     var body: some View {
         Text(markdownToAttributedString(rawText))
+            .environment(\.openURL, OpenURLAction(handler: handleURL))
     }
 }
 
 
 #Preview {
-    PostRichText(rawText: "Post content\nLine 2\nVery very **LONG** content here, yes, it's very very long.@alikia@m.cmx.im")
+    PostRichText(rawText: "Hello. **Bold** [Google](https://google.com)")
 }

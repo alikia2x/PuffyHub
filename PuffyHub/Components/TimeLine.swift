@@ -7,11 +7,12 @@
 
 import Foundation
 import SwiftUI
+import AuthenticationServices
 
 struct SpinnerView: View {
   var body: some View {
     ProgressView()
-      .progressViewStyle(CircularProgressViewStyle())
+        .progressViewStyle(.circular)
   }
 }
 
@@ -29,10 +30,11 @@ public let type_APIString: [TimeLineType: String] = [
     .global: "notes/global-timeline"
 ]
 
-public func loadData(timeline: TimeLineType, sinceId: String? = nil, timeLineData: TimeLineData, appSettings: AppSettings) async {
+public func loadData(sinceId: String? = nil, timeLineData: TimeLineData, appSettings: AppSettings) async {
     let server = appSettings.server
     let token = appSettings.token
     
+    let timeline = timeLineData.timelineType
     let APIString = type_APIString[timeline]
     
     if (APIString == nil) {
@@ -55,6 +57,9 @@ public func loadData(timeline: TimeLineType, sinceId: String? = nil, timeLineDat
         }
     }
     
+//    try? await Task.sleep(nanoseconds: 2_000_000_000)
+    
+    
     let response: RequestResponse = await MKAPIRequest(server: server, endpoint: APIString!, postBody: postBody, token: token)
     if response.success == false {
         return
@@ -70,8 +75,19 @@ public func loadData(timeline: TimeLineType, sinceId: String? = nil, timeLineDat
             for jsonDict in jsonArray {
                 if let postData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),
                    let postItem = try? JSONDecoder().decode(MKNote.self, from: postData) {
-                    tempResults.append(postItem)
-                } else {
+                    if (jsonDict["renote"] == nil){
+                        tempResults.append(postItem)
+                    }
+                    else {
+                        if let renoteData = try? JSONSerialization.data(withJSONObject: jsonDict["renote"] as Any, options: []),
+                           var renoteItem = try? JSONDecoder().decode(MKNote.self, from: renoteData) {
+                            renoteItem.isReposted = true
+                            renoteItem.repostUser = postItem.user
+                            tempResults.append(renoteItem)
+                        }
+                    }
+                }
+                else {
                     print("ERR:", jsonDict.keys)
                 }
             }
@@ -96,44 +112,51 @@ public func loadData(timeline: TimeLineType, sinceId: String? = nil, timeLineDat
     }
 }
 
+func openLink(url: String) {
+    guard let swift_URL = URL(string: url) else {
+        return
+    }
+    // Source: https://www.reddit.com/r/apple/comments/rcn2h7/comment/hnwr8do/
+    let session = ASWebAuthenticationSession(
+        url: swift_URL,
+        callbackURLScheme: nil
+    ) { _, _ in
+    }
+    session.prefersEphemeralWebBrowserSession = true
+    session.start()
+}
+
+
 struct TimeLineView: View {
-    var TLType: TimeLineType
-    
     @EnvironmentObject var timeLineData: TimeLineData
     @EnvironmentObject var appSettings: AppSettings
-
     
     var body: some View {
         VStack {
             if (timeLineData.statusCode == 200 && timeLineData.loading == false) {
-                List {
-                    Button(action: {
-                        Task {
-                            print("Refresh")
-                            await loadData(timeline: TLType, timeLineData: timeLineData, appSettings: appSettings)
-                        }
-                    }) {
-                        Text("Refresh")
-                    }
-                    ForEach(timeLineData.timeline, id: \.id) { item in
-                        PostItem(name: item.user.name ?? "", username: "@"+item.user.username+"@"+(item.user.host ?? ""), content: item.text ?? "", avatar: item.user.avatarUrl, files: item.files)
-                            .onAppear {
-                                if item.id == timeLineData.timeline.last?.id && !timeLineData.isLoadingMore && !timeLineData.loading {
-                                    Task {
-                                        await loadData(timeline: TLType, sinceId: timeLineData.lastLoadedId, timeLineData: timeLineData, appSettings: appSettings)
+                ScrollView{
+                    VStack{
+                        TimeLineControls()
+                        LazyVStack {
+                            ForEach(timeLineData.timeline, id: \.id) { item in
+                                PostItem(item: item)
+                                    .onAppear {
+                                        if item.id == timeLineData.timeline.last?.id && !timeLineData.isLoadingMore && !timeLineData.loading {
+                                            Task {
+                                                await loadData(sinceId: timeLineData.lastLoadedId, timeLineData: timeLineData, appSettings: appSettings)
+                                            }
+                                        }
                                     }
-                                }
+                                Spacer()
                             }
-                    }
-                    if timeLineData.isLoadingMore {
-                        Text("Loading more...")
+                        }
                     }
                 }
             } else if timeLineData.loading == false {
                 Text("Failed to load.")
                 Button(action: {
                     Task {
-                        await loadData(timeline: TLType, timeLineData: timeLineData, appSettings: appSettings)
+                        await loadData(timeLineData: timeLineData, appSettings: appSettings)
                     }
                 }, label: {
                     Text("Reload")
@@ -144,4 +167,14 @@ struct TimeLineView: View {
         }
         .navigationTitle("Timeline")
     }
+}
+
+#Preview {
+    TimeLineView()
+        .task {
+            await loadData(timeLineData: TimeLineData(), appSettings: AppSettings.example)
+        }
+        .environmentObject(AppSettings.example)
+        .environmentObject(TimeLineData())
+        
 }

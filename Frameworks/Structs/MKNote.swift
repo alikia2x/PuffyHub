@@ -34,6 +34,8 @@ public struct MKNote: Codable {
     @LossyOptional public var replyId: String?
     @LossyOptional public var mentions: [String]?
     @LossyOptional public var poll: MKNotePoll?
+    @LossyOptional public var isReposted: Bool?
+    @LossyOptional public var repostUser: MKUserLite?
 }
 
 public struct MKNoteReaction: Codable {

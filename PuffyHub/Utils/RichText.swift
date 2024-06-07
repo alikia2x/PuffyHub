@@ -11,6 +11,24 @@ import UIKit
 // Enum to define regex patterns for Markdown syntax
 enum MarkdownRegex: String {
     case bold = "\\*\\*(.*?)\\*\\*"
+    case username = #"(?<=(^|\s))@([A-Za-z0-9_])+(?=($|\s))"#
+    case unifiedUsername = #"@([A-Za-z0-9_])+?@([A-Za-z0-9\-\.]+)\.([A-Za-z]+)(?=($|\s))"#
+
+    case emoji = #":[A-Za-z0-9._]+:"#
+    case hashtag = #"#[\u4E00-\u9FCCA-Za-z0-9_\.]+"#
+    case repliesMentionPrefix = #"^((@([A-Za-z0-9_])+?@([A-Za-z0-9\-\.]+)\.([A-Za-z]+)) )+"#
+    case mail = #"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}"#
+    case link = #"https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9]{1,6}\b([-a-zA-Z0-9@:%_\+.~#?&,//=]*)"#
+    case idna = #"(xn--)(--)*[a-z0-9]+[^. ]"#
+
+    case dollarAttribute = #"\$\[.+ .+\]"#
+
+    case markdownAttachment = #"\[([^\]]*?)\]\(([^)]*?)\)"#
+    case markdownBold = #"\*\*(.+?)\*\*(?!\*)"#
+    case markdownStrikethrough = #"\~\~(.+?)\~\~(?!\~)"#
+    case markdownMonospaceInline = #"`.+?`"#
+    case markdownMonospaceMultiLine = #"```((.|\n)*?)```"#
+    case markdownQuote = #"^>.+$"#
 }
 
 // Typealias for the modification closure
@@ -131,6 +149,42 @@ func replaceAttributeForMarkdownBold(with string: NSMutableAttributedString) {
     }
 }
 
+func replaceAttributeForMarkdownLink(with string: NSMutableAttributedString) {
+    enumeratedModifyingWithRegex(withinString: string, matching: .markdownAttachment) { subString in
+        guard subString.string.hasPrefix("["),
+              subString.string.contains("]"),
+              subString.string.contains("("),
+              subString.string.hasSuffix(")")
+        else {
+            return subString
+        }
+        var link = subString.string.components(separatedBy: "]")
+            .last ?? ""
+        guard link.hasPrefix("("), link.hasSuffix(")") else { return subString }
+        link.removeFirst()
+        link.removeLast()
+        if link.hasPrefix("<"), link.hasSuffix(">") {
+            link.removeFirst()
+            link.removeLast()
+        }
+        guard !link.isEmpty else { return subString }
+        guard let finalURL = URL(string: link) else { return subString }
+
+        var desc = subString.string
+        desc = desc.components(separatedBy: "]").first ?? ""
+        desc = desc.components(separatedBy: "[").last ?? ""
+        subString.mutableString.setString(desc)
+        
+        // Add the URL as a link attribute
+        subString.addAttributes([
+            .link: finalURL.absoluteString
+        ], range: NSRange(location: 0, length: desc.count))
+        
+        return subString
+    }
+}
+
+
 // Function to convert raw Markdown string to AttributedString
 func markdownToAttributedString(_ rawString: String) -> AttributedString {
     let mutableAttributedString = NSMutableAttributedString(string: rawString)
@@ -138,19 +192,15 @@ func markdownToAttributedString(_ rawString: String) -> AttributedString {
         .font: UIFont.systemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize)
     ], range: NSRange(location: 0, length: mutableAttributedString.length))
     replaceAttributeForMarkdownBold(with: mutableAttributedString)
+    replaceAttributeForMarkdownLink(with: mutableAttributedString)
     // Add more replace functions here for other Markdown syntaxes
     return AttributedString(mutableAttributedString)
 }
 
-// SwiftUI view to display the Markdown text
-struct MarkdownTextView: View {
-    let rawString: String
-
-    var body: some View {
-        Text(markdownToAttributedString(rawString))
-    }
-}
 
 #Preview {
-    MarkdownTextView(rawString: "Hello. **Bold**")
+    VStack {
+        PostRichText(rawText: "Hello. **Bold** [Google](https://google.com)")
+        Link("Normal Link that doesn't support watchOS", destination: URL(string: "https://google.com")!)
+    }
 }

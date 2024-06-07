@@ -45,14 +45,30 @@ public class TimeLineData: ObservableObject {
     @Published var lastLoadedId: String? = nil
 }
 
+public let TLType_Image: [TimeLineType: String] = [
+    .home: "house",
+    .local: "server.rack",
+    .hybrid: "person.2",
+    .global: "globe"
+]
+
+public let TLType_Text: [TimeLineType: String] = [
+    .home: "Home",
+    .local: "Local",
+    .hybrid: "Social",
+    .global: "Global"
+]
+
 struct MainAppView: View {
     @EnvironmentObject var timeLineData: TimeLineData
+    @EnvironmentObject var appSettings: AppSettings
+    
     var body: some View {
         NavigationStack {
-            TimeLineView(TLType: timeLineData.timelineType)
+            TimeLineView()
         }
         NavigationStack {
-            AboutView()
+            MeView()
         }
     }
 }
@@ -72,7 +88,7 @@ struct ContentView: View {
             else {
                 MainAppView()
                 .task {
-                    await loadData(timeline: .home, timeLineData: timeLineData, appSettings: appSettings)
+                    await loadData(timeLineData: timeLineData, appSettings: appSettings)
                 }
             }
         }
