@@ -48,9 +48,6 @@ func enumerateModifying(string: NSMutableAttributedString, duringRanges ranges: 
             assertionFailure()
             continue
         }
-//            #if DEBUG
-//                debugPrint("[*] enumerator calling operation on range \(buildRange.location) \(buildRange.length) \(subString.string.components(separatedBy: "\n").joined(separator: " "))")
-//            #endif
         let originalString = subString.string
         guard originalString.utf16.count == subString.length else {
             assertionFailure()

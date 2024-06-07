@@ -22,7 +22,7 @@ struct timelineRequest: Encodable {
     var allowPartial: Bool?;
 }
 
-class AppSettings: ObservableObject {
+public class AppSettings: ObservableObject {
     @AppStorage("token") var token: String = ""
     @AppStorage("instance") var server: String = ""
 }
@@ -36,15 +36,41 @@ extension AppSettings {
     }
 }
 
+public class TimeLineData: ObservableObject {
+    @Published var timeline: [MKNote] = []
+    @Published var timelineType: TimeLineType = .home
+    @Published var statusCode: Int = 0
+    @Published var loading: Bool = false
+    @Published var isLoadingMore: Bool = false
+    @Published var lastLoadedId: String? = nil
+}
+
 struct ContentView: View {
+    @EnvironmentObject var timeLineData: TimeLineData
     @EnvironmentObject var appSettings: AppSettings
+    
+    
     var body: some View {
-        if (appSettings.token != "" && appSettings.server != ""){
-            TimeLineView(token: appSettings.token, server: appSettings.server, TLType: .home)
-        }
-        else {
-            IntroView()
-        }
+        TabView {
+            if (appSettings.token == "" || appSettings.server == ""){
+                NavigationStack {
+                    IntroView()
+                }
+            }
+            else {
+                NavigationStack {
+                    TimeLineView(TLType: timeLineData.timelineType)
+                }
+                
+                NavigationStack {
+                    AboutView()
+                }
+            }
+        }.tabViewStyle(.page)
+            .task {
+                await loadData(timeline: .home, timeLineData: timeLineData, appSettings: appSettings)
+            }
+            
     }
 }
 
@@ -52,4 +78,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .environmentObject(AppSettings.example)
+        .environmentObject(TimeLineData())
 }

@@ -91,12 +91,8 @@ struct AboutContent: View {
 
 struct AboutView: View {
     var body: some View {
-        TabView {
-            NavigationStack {
-                AboutContent()
-                    .navigationTitle("About")
-            }
-        }.tabViewStyle(.page)
+        AboutContent()
+            .navigationTitle("About")
     }
 }
 

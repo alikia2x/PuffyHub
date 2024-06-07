@@ -11,7 +11,6 @@ import UIKit
 import WatchKit
 import SDWebImageSwiftUI
 import SDWebImageWebPCoder
-import MarkdownUI
 
 struct PostItem: View {
     var name: String

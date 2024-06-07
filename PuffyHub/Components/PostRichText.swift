@@ -12,7 +12,6 @@ import WatchKit
 import SDWebImage
 import SDWebImageSwiftUI
 import SDWebImageWebPCoder
-import MarkdownUI
 
 struct PostRichText: View {
     var rawText: String

@@ -11,10 +11,13 @@ import WatchKit
 
 @main
 struct PuffyHubApp: App {
+    @StateObject var appSettings = AppSettings()
+    @StateObject var timeline = TimeLineData()
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(AppSettings())
+                .environmentObject(appSettings)
+                .environmentObject(timeline)
         }
     }
 }

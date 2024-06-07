@@ -13,18 +13,20 @@ public struct RequestResponse {
     var response: URLResponse?
 }
 
-func MKAPIRequest(server: String, endpoint: String, postBody: Encodable, token: String? = nil, method: String? = "POST") async -> RequestResponse {
+func MKAPIRequest(server: String, endpoint: String, postBody: Encodable? = nil, token: String? = nil, method: String? = "POST", root: Bool? = false) async -> RequestResponse {
     guard let ServerURL = URL(string: server),
-          let ServerEndpoint = URL(string: "/api/", relativeTo: ServerURL),
+          let ServerEndpoint = (root! ? URL(string: "/", relativeTo: ServerURL) : URL(string: "/api/", relativeTo: ServerURL)),
           let url = URL(string: endpoint, relativeTo: ServerEndpoint) else {
         print("Invalid URL")
         return RequestResponse(success: false)
     }
 
     do {
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
         request.httpMethod = method
-        request.httpBody = try JSONEncoder().encode(postBody)
+        if (postBody != nil) {
+            request.httpBody = try JSONEncoder().encode(postBody!)
+        }
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         if (token != nil) {
             request.setValue("Bearer " + token!, forHTTPHeaderField: "Authorization")
