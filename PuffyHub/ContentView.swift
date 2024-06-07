@@ -45,6 +45,18 @@ public class TimeLineData: ObservableObject {
     @Published var lastLoadedId: String? = nil
 }
 
+struct MainAppView: View {
+    @EnvironmentObject var timeLineData: TimeLineData
+    var body: some View {
+        NavigationStack {
+            TimeLineView(TLType: timeLineData.timelineType)
+        }
+        NavigationStack {
+            AboutView()
+        }
+    }
+}
+
 struct ContentView: View {
     @EnvironmentObject var timeLineData: TimeLineData
     @EnvironmentObject var appSettings: AppSettings
@@ -58,19 +70,13 @@ struct ContentView: View {
                 }
             }
             else {
-                NavigationStack {
-                    TimeLineView(TLType: timeLineData.timelineType)
-                }
-                
-                NavigationStack {
-                    AboutView()
+                MainAppView()
+                .task {
+                    await loadData(timeline: .home, timeLineData: timeLineData, appSettings: appSettings)
                 }
             }
-        }.tabViewStyle(.page)
-            .task {
-                await loadData(timeline: .home, timeLineData: timeLineData, appSettings: appSettings)
-            }
-            
+        }
+        .tabViewStyle(.page)
     }
 }
 

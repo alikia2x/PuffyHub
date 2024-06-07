@@ -72,7 +72,7 @@ struct LoginView: View {
                     let checkEndpoint = "miauth/" + UUID + "/check"
                     Task {
                         try await Task.sleep(nanoseconds: 5_000_000_000)
-                        for _ in 1...10 {
+                        while true {
                             struct rqBody: Codable {
                                 var fuck: String
                             }
@@ -84,7 +84,10 @@ struct LoginView: View {
                                 print("TOKEN: ", decodedResponse.token)
                                 break
                             } else {
-                                print(response.data!.base64EncodedString())
+                                print("Failed to parse.")
+                            }
+                            if (showingQRCode==false) {
+                                break
                             }
                             try await Task.sleep(nanoseconds: 1_000_000_000)
                         }

@@ -59,6 +59,8 @@ struct LicenseText: View {
 }
 
 struct AboutContent: View {
+    @EnvironmentObject var appSettings: AppSettings
+    
     var body: some View {
         ScrollView{
             VStack(alignment: .leading) {
@@ -74,6 +76,11 @@ struct AboutContent: View {
                 )
                 Spacer()
                 Label("Special thanks: Lakr233", systemImage: "heart.circle")
+                Spacer()
+                Button("Log out", action: {
+                    appSettings.server=""
+                    appSettings.token=""
+                })
                 Spacer()
                 LicenseText()
             }

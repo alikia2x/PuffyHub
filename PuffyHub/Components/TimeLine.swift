@@ -47,44 +47,52 @@ public func loadData(timeline: TimeLineType, sinceId: String? = nil, timeLineDat
         // All in all, this works.
         allowPartial: true
     )
-    if sinceId == nil {
-        timeLineData.loading = true
-    } else {
-        timeLineData.isLoadingMore = true
+    DispatchQueue.main.async {
+        if sinceId == nil {
+            timeLineData.loading = true
+        } else {
+            timeLineData.isLoadingMore = true
+        }
     }
+    
     let response: RequestResponse = await MKAPIRequest(server: server, endpoint: APIString!, postBody: postBody, token: token)
     if response.success == false {
         return
     }
     
-    timeLineData.statusCode = (response.response as! HTTPURLResponse).statusCode
+    DispatchQueue.main.async {
+        timeLineData.statusCode = (response.response as! HTTPURLResponse).statusCode
+    }
     
     if let jsonArray = try? JSONSerialization.jsonObject(with: response.data!, options: []) as? [[String: Any]] {
-        var tempResults: [MKNote] = []
-        for jsonDict in jsonArray {
-            if let postData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),
-               let postItem = try? JSONDecoder().decode(MKNote.self, from: postData) {
-                tempResults.append(postItem)
-            } else {
-                print("ERR:", jsonDict.keys)
+        DispatchQueue.main.async {
+            var tempResults: [MKNote] = []
+            for jsonDict in jsonArray {
+                if let postData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),
+                   let postItem = try? JSONDecoder().decode(MKNote.self, from: postData) {
+                    tempResults.append(postItem)
+                } else {
+                    print("ERR:", jsonDict.keys)
+                }
             }
-        }
-        if sinceId == nil {
-            timeLineData.timeline = tempResults
-        } else {
-            timeLineData.timeline.append(contentsOf: tempResults)
-        }
-        if let last = tempResults.last {
-            timeLineData.lastLoadedId = last.id
+            if sinceId == nil {
+                timeLineData.timeline = tempResults
+            } else {
+                timeLineData.timeline.append(contentsOf: tempResults)
+            }
+            if let last = tempResults.last {
+                timeLineData.lastLoadedId = last.id
+            }
         }
     } else {
         print("Failed to parse JSON")
     }
-    
-    if sinceId == nil {
-        timeLineData.loading = false
-    } else {
-        timeLineData.isLoadingMore = false
+    DispatchQueue.main.async {
+        if sinceId == nil {
+            timeLineData.loading = false
+        } else {
+            timeLineData.isLoadingMore = false
+        }
     }
 }
 
