@@ -21,7 +21,6 @@ let examplePost: MKNote = MKNote(id: "9u8jspbrfoen1thy", createdAt: "2024-06-07T
 )
 
 func getRelativeTime(dateString: String) -> String{
-    let dateString = "2024-06-07T17:52:08.247Z"
 
     // 1. Parse the date string into a Date object
     let isoDateFormatter = ISO8601DateFormatter()

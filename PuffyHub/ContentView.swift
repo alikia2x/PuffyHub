@@ -87,12 +87,13 @@ struct ContentView: View {
             }
             else {
                 MainAppView()
-                .task {
-                    await loadData(timeLineData: timeLineData, appSettings: appSettings)
-                }
+                    .task {
+                        await loadData(timeLineData: timeLineData, appSettings: appSettings)
+                    }
             }
         }
         .tabViewStyle(.page)
+        .environmentObject(AppSettings())
     }
 }
 

@@ -57,8 +57,6 @@ public func loadData(sinceId: String? = nil, timeLineData: TimeLineData, appSett
         }
     }
     
-//    try? await Task.sleep(nanoseconds: 2_000_000_000)
-    
     
     let response: RequestResponse = await MKAPIRequest(server: server, endpoint: APIString!, postBody: postBody, token: token)
     if response.success == false {
@@ -171,9 +169,6 @@ struct TimeLineView: View {
 
 #Preview {
     TimeLineView()
-        .task {
-            await loadData(timeLineData: TimeLineData(), appSettings: AppSettings.example)
-        }
         .environmentObject(AppSettings.example)
         .environmentObject(TimeLineData())
         

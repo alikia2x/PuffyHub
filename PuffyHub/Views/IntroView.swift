@@ -81,6 +81,7 @@ struct LoginView: View {
                             if let decodedResponse = try? JSONDecoder().decode(MIAuthCheckResponse.self, from: response.data!) {
                                 appSettings.token = decodedResponse.token
                                 appSettings.server = baseURL
+                                showingQRCode = false
                                 print("TOKEN: ", decodedResponse.token)
                                 break
                             } else {
