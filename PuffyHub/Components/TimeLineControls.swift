@@ -16,12 +16,12 @@ struct TimeLineControls: View {
             Button(action: {
                 switchingTimeLine = true
             }) {
-                HStack{
+                HStack (spacing: 0){
                     Image(systemName: TLType_Image[timeLineData.timelineType]!)
                     Text(TLType_Text[timeLineData.timelineType]!)
                 }
             }
-            .frame(width: 100)
+            .frame(width: 92)
             .buttonBorderShape(.roundedRectangle(radius: 6.0))
             .confirmationDialog("Select Timeline", isPresented: $switchingTimeLine, titleVisibility: .visible) {
                 ForEach(TLType_Text.sorted{(first, second) -> Bool in return first.value > second.value}, id: \.key) { key, value in

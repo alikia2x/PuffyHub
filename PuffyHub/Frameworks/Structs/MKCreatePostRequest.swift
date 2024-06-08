@@ -8,13 +8,14 @@
 import BetterCodable
 import Foundation
 
-public struct NMPost: Codable {
+public struct MKCreatePostRequest: Codable {
     @LossyOptional public var text: String?
-    @LossyOptional public var fileIds: [String]?
+//    @LossyOptional public var fileIds: [String]?
     @LossyOptional public var poll: Poll?
     @LossyOptional public var cw: String?
     public var localOnly: Bool = false
     public var visibility: String = "public"
+    public var fileIds: [String]?
     @LossyOptional public var visibleUserIds: [String]?
 
     public struct Poll: Codable {
@@ -32,18 +33,20 @@ public struct NMPost: Codable {
     public init(
         text: String?,
         fileIds: [String]?,
-        poll: NMPost.Poll?,
+        poll: MKCreatePostRequest.Poll?,
         cw: String?,
         localOnly: Bool = false,
         visibility: String = "public",
         visibleUserIds: [String]?
     ) {
         self.text = text
-        self.fileIds = fileIds
         self.poll = poll
         self.cw = cw
         self.localOnly = localOnly
         self.visibility = visibility
         self.visibleUserIds = visibleUserIds
+        if (fileIds != nil) {
+            self.fileIds = fileIds
+        }
     }
 }

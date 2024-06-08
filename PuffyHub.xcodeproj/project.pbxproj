@@ -168,13 +168,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		C49C75CC2C14CCB000BD2EE6 /* Debug */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Debug;
-			sourceTree = "<group>";
-		};
 		C4C0C4B82C0C578A00C61F4C = {
 			isa = PBXGroup;
 			children = (
@@ -195,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				C44F66532C11A59D00D5B653 /* Components */,
-				C49C75CC2C14CCB000BD2EE6 /* Debug */,
 				C44F663E2C10F77900D5B653 /* Frameworks */,
 				C4C0C4D02C0C578B00C61F4C /* Preview Content */,
 				C44F66602C12160F00D5B653 /* Resources */,
@@ -254,7 +246,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1530;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					C4C0C4C42C0C578A00C61F4C = {
@@ -474,7 +466,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.7.0;
+				MARKETING_VERSION = 0.8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -504,7 +496,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.7.0;
+				MARKETING_VERSION = 0.8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
