@@ -1,5 +1,5 @@
 {
-  "originHash" : "20304c621a19353008565cb2c8f3374a3218b05a3f4386fbafcc479021c110c1",
+  "originHash" : "a854bb097c6bcae3c7cfd3e1c9c0f2ac9eb2942324e11744bc72d23e45362fac",
   "pins" : [
     {
       "identity" : "bettercodable",
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kean/Nuke",
       "state" : {
-        "revision" : "2efd206503e99dd3a88a4dc433a76f98ce8cc198",
-        "version" : "12.7.1"
+        "revision" : "084076db4f9b9ee4db51177ef5a4879689c1aa09",
+        "version" : "12.7.2"
       }
     },
     {
@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dagronf/QRCode",
       "state" : {
-        "revision" : "8b7a546a2e92be6b05e75bc287abdb1d11ac564e",
-        "version" : "19.2.0"
+        "revision" : "d9f5eb2a75809cb0291cdb4380d87e5b24f8dff0",
+        "version" : "19.3.2"
       }
     },
     {
