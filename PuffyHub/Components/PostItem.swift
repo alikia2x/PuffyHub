@@ -12,43 +12,45 @@ import WatchKit
 import SDWebImageSwiftUI
 import SDWebImageWebPCoder
 
-let examplePost: MKNote = MKNote(id: "9u8jspbrfoen1thy", createdAt: "2024-06-07T17:52:08.247Z",
-    text: "这两天听了无数遍 Porter Robinson 的 《Russian Roulette》，不得不说这是我近一两年来听过的最新颖的作品，没有定式，很抓耳（可能是出于商业导向整个专辑都有瞄准短视频制作 Drop），听起来很随意但又有深邃的情感表达，有很活泼的元素运用。\n\n拿起了吉他的 Porter 这一刻化身成了新时代的吟游诗人给我们说他自己的故事，是完完全全只属于他也只为了他而创作的音乐。\n\n在目前释出的三个曲目里这一首是目前为止我个人最喜欢且认为最登峰造极的一首，前两首在整体的编制方面虽然也不差，但是听着有相对更重的商业味道，而且对比这一首更平庸。\n\n不得不说，虽然我有粉丝滤镜，但是他确实是一个天才",
-    userId: "9owfkrf3byt70v8c",
-    user: MKUserLite(id: "9owfkrf3byt70v8c", name: "BackRunner", username: "backrunner", host: "pwp.space",
-                    avatarUrl: "https://social.a2x.pub/proxy/avatar.webp?url=https%3A%2F%2Fassets-misskey.pwp.space%2Fnull%2F083c0af6-bff9-4564-9b85-33876a834175.webp&avatar=1"
-    ), renoteCount: 2
+let examplePost: MKNote = MKNote(
+    id: "9u9afgousrp701do",
+    createdAt: "2024-06-08T06:50:40.158Z",
+    text: "我最喜欢的Mojave壁纸……终于回来了:anenw17:",
+    userId: "9ou4jmix73gp0001",
+    user: MKUserLite(
+        id: "9ou4jmix73gp0001",
+        name: "寒寒",
+        username: "alikia",
+        host: nil,
+        avatarUrl: "https://social.a2x.pub/proxy/avatar.webp?url=https%3A%2F%2Fsocial.a2x.pub%2Ffiles%2F02d2c204-5f14-4f5f-adc9-5779e6f323d6&avatar=1"
+    ),
+    renoteCount: 2,
+    repliesCount: 0,
+    reactions: [:],
+    fileIds: ["9u9af4szsrp701dn"],
+    files: [
+        MKDriveFile(
+            id: "9u9af4szsrp701dn",
+            name: "截屏2024-06-08 17.17.01.png.webp",
+            type: "image/webp",
+            isSensitive: false,
+            url: "https://assets-social.a2x.pub/media/b2091528-2e52-4296-a081-ce1b2b264b14.webp",
+            thumbnailUrl: "https://assets-social.a2x.pub/media/thumbnail-b3eeff8c-c863-4070-955f-92dc665251d8.webp"
+        )
+    ]
 )
-
-func getRelativeTime(dateString: String) -> String{
-
-    // 1. Parse the date string into a Date object
-    let isoDateFormatter = ISO8601DateFormatter()
-    isoDateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-    guard let date = isoDateFormatter.date(from: dateString) else {
-        fatalError("Invalid date format")
-    }
-
-    // 2. Create a RelativeDateTimeFormatter
-    let relativeFormatter = RelativeDateTimeFormatter()
-    relativeFormatter.unitsStyle = .full
-    relativeFormatter.locale = Locale.current // Use the current locale
-
-    // 3. Get the relative time string from the Date
-    let relativeTimeString = relativeFormatter.localizedString(for: date, relativeTo: Date())
-
-    // Print the result
-    return relativeTimeString
-}
 
 struct PostItem: View {
     var item: MKNote
+    @EnvironmentObject var appSettings: AppSettings
     
     private var name: String
     private var username: String
     private var content: String
     private var avatar: String?
     private var files: [MKDriveFile]?;
+    
+    @ScaledMetric private var scale: CGFloat = 1;
     
     init(item: MKNote) {
         self.item = item
@@ -59,8 +61,6 @@ struct PostItem: View {
         self.files = item.files
     }
     
-    
-    @ScaledMetric private var scale: CGFloat = 1;
     var body: some View {
         VStack(alignment: .leading){
             if (item.isReposted != nil && item.isReposted!) {
@@ -69,19 +69,19 @@ struct PostItem: View {
             
             HStack{
                 WebImage(url: URL(string: avatar ?? ""), options: .progressiveLoad) { image in
-                        image.resizable() // Control layout like SwiftUI.AsyncImage, you must use this modifier or the view will use the image bitmap size
-                    } placeholder: {
-                        Image(systemName:"person")
-                            .imageScale(.large)
-                    }
-                    .onSuccess { image, data, cacheType in
-                        
-                    }
-                    .indicator(.activity) // Activity Indicator
-                    .transition(.fade(duration: 0.5)) // Fade Transition with duration
-                    .scaledToFit()
-                    .frame(width: 32 * scale, height: 32 * scale)
-                    .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
+                    image.resizable() // Control layout like SwiftUI.AsyncImage, you must use this modifier or the view will use the image bitmap size
+                } placeholder: {
+                    Image(systemName:"person")
+                        .imageScale(.large)
+                }
+                .onSuccess { image, data, cacheType in
+                    
+                }
+                .indicator(.activity) // Activity Indicator
+                .transition(.fade(duration: 0.5)) // Fade Transition with duration
+                .scaledToFit()
+                .frame(width: 32 * scale, height: 32 * scale)
+                .cornerRadius(3.0)
                 
                 VStack(alignment: .leading){
                     Text(name)
@@ -93,24 +93,8 @@ struct PostItem: View {
                 }
             }
             Divider()
-            PostRichText(rawText: content)
-            if (files?.isEmpty == false){
-                VStack{
-                    ForEach(files!, id: \.id) { file in
-                        WebImage(url: URL(string: file.thumbnailUrl ?? ""), options: .progressiveLoad) { image in
-                                image.resizable()
-                            } placeholder: {
-                                Image(systemName:"photo")
-                                    .imageScale(.large)
-                            }
-                            .onSuccess { image, data, cacheType in
-                            }
-                            .indicator(.activity)
-                            .transition(.fade(duration: 0.5))
-                            .scaledToFit()
-                    }
-                }
-            }
+            PostRichText(rawText: content, postHost: item.user.host, server: appSettings.server)
+            PostFiles(files: item.files)
             Spacer()
             HStack{
                 if (item.reactions != nil) {
@@ -123,17 +107,12 @@ struct PostItem: View {
                     Label(String(item.repliesCount!), systemImage: "arrowshape.turn.up.left")
                 }
             }
-            Text(getRelativeTime(dateString: item.createdAt))
-                .font(.caption)
-                .foregroundStyle(.secondary)
+            PostTimeShort(time: item.createdAt)
         }
         .padding(.horizontal, 7.5)
         .padding(.vertical, 12.0)
         .background(.gray.opacity(0.2))
         .cornerRadius(7.0)
-        .onAppear{
-            SDImageCodersManager.shared.addCoder(SDImageWebPCoder.shared)
-        }
     }
 }
 
@@ -144,4 +123,5 @@ struct PostItem: View {
             PostItem(item: examplePost)
         }
     }
+    .environmentObject(AppSettings.example)
 }

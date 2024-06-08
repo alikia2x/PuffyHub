@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C42696442C1429AF005990A0 /* TimeLineRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42696432C1429AF005990A0 /* TimeLineRequest.swift */; };
+		C42696462C145A78005990A0 /* TimeLineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42696452C145A78005990A0 /* TimeLineType.swift */; };
 		C44F66452C10F86400D5B653 /* BetterCodable in Frameworks */ = {isa = PBXBuildFile; productRef = C44F66442C10F86400D5B653 /* BetterCodable */; };
 		C44F664A2C10F8ED00D5B653 /* MKNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66492C10F8ED00D5B653 /* MKNote.swift */; };
 		C44F664C2C10F90A00D5B653 /* MKEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F664B2C10F90A00D5B653 /* MKEmoji.swift */; };
@@ -14,13 +16,21 @@
 		C44F66502C10F95D00D5B653 /* MKInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F664F2C10F95D00D5B653 /* MKInstance.swift */; };
 		C44F66522C10F9EC00D5B653 /* MKDriveFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66512C10F9EC00D5B653 /* MKDriveFile.swift */; };
 		C44F66552C11A64D00D5B653 /* TimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66542C11A64D00D5B653 /* TimeLine.swift */; };
-		C44F66572C11BC4600D5B653 /* PostRichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66562C11BC4600D5B653 /* PostRichText.swift */; };
 		C44F665A2C11CAB700D5B653 /* RichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66592C11CAB700D5B653 /* RichText.swift */; };
 		C44F665D2C11E52500D5B653 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F665C2C11E52500D5B653 /* IntroView.swift */; };
 		C44F665F2C12026200D5B653 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F665E2C12026200D5B653 /* AboutView.swift */; };
 		C44F66622C12161F00D5B653 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C44F66612C12161F00D5B653 /* LICENSE */; };
 		C44F66642C12314900D5B653 /* MKAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66632C12314900D5B653 /* MKAPIRequest.swift */; };
 		C47072F02C1388E300CEBE51 /* TimeLineControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47072EF2C1388E300CEBE51 /* TimeLineControls.swift */; };
+		C47ED9B22C14384900460523 /* PostTimeShort.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47ED9B12C14384900460523 /* PostTimeShort.swift */; };
+		C47ED9B42C1449B700460523 /* OpenLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47ED9B32C1449B700460523 /* OpenLink.swift */; };
+		C47ED9B62C144C9A00460523 /* PostFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47ED9B52C144C9A00460523 /* PostFiles.swift */; };
+		C47ED9D12C14928C00460523 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = C47ED9D02C14928C00460523 /* Nuke */; };
+		C47ED9D32C14928C00460523 /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C47ED9D22C14928C00460523 /* NukeExtensions */; };
+		C47ED9D52C14928C00460523 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = C47ED9D42C14928C00460523 /* NukeUI */; };
+		C47ED9D82C1492EE00460523 /* NukeWebP in Frameworks */ = {isa = PBXBuildFile; productRef = C47ED9D72C1492EE00460523 /* NukeWebP */; };
+		C47ED9DA2C1492EE00460523 /* NukeWebPAdvanced in Frameworks */ = {isa = PBXBuildFile; productRef = C47ED9D92C1492EE00460523 /* NukeWebPAdvanced */; };
+		C47ED9DC2C1492EE00460523 /* NukeWebPBasic in Frameworks */ = {isa = PBXBuildFile; productRef = C47ED9DB2C1492EE00460523 /* NukeWebPBasic */; };
 		C48D90C12C0C65700001D4FD /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D90C02C0C65700001D4FD /* PostItem.swift */; };
 		C48D90C42C0C701A0001D4FD /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C32C0C701A0001D4FD /* SDWebImageSwiftUI */; };
 		C48D90C92C0C88150001D4FD /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C82C0C88150001D4FD /* SDWebImageWebPCoder */; };
@@ -29,29 +39,37 @@
 		C4C0C4CD2C0C578A00C61F4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C0C4CC2C0C578A00C61F4C /* ContentView.swift */; };
 		C4C0C4CF2C0C578B00C61F4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4C0C4CE2C0C578B00C61F4C /* Assets.xcassets */; };
 		C4C0C4D22C0C578B00C61F4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4C0C4D12C0C578B00C61F4C /* Preview Assets.xcassets */; };
+		C4D240BA2C149DF000252A9E /* PostRichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D240B92C149DF000252A9E /* PostRichText.swift */; };
+		C4D240BE2C14B8BB00252A9E /* ResizeCGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D240BD2C14B8BB00252A9E /* ResizeCGImage.swift */; };
 		C4E97CEB2C13AF8D006642C7 /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E97CEA2C13AF8D006642C7 /* MeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C42696432C1429AF005990A0 /* TimeLineRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineRequest.swift; sourceTree = "<group>"; };
+		C42696452C145A78005990A0 /* TimeLineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineType.swift; sourceTree = "<group>"; };
 		C44F66492C10F8ED00D5B653 /* MKNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKNote.swift; sourceTree = "<group>"; };
 		C44F664B2C10F90A00D5B653 /* MKEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKEmoji.swift; sourceTree = "<group>"; };
 		C44F664D2C10F91C00D5B653 /* MKUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKUser.swift; sourceTree = "<group>"; };
 		C44F664F2C10F95D00D5B653 /* MKInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKInstance.swift; sourceTree = "<group>"; };
 		C44F66512C10F9EC00D5B653 /* MKDriveFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKDriveFile.swift; sourceTree = "<group>"; };
 		C44F66542C11A64D00D5B653 /* TimeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLine.swift; sourceTree = "<group>"; };
-		C44F66562C11BC4600D5B653 /* PostRichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRichText.swift; sourceTree = "<group>"; };
 		C44F66592C11CAB700D5B653 /* RichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichText.swift; sourceTree = "<group>"; };
 		C44F665C2C11E52500D5B653 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		C44F665E2C12026200D5B653 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		C44F66612C12161F00D5B653 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C44F66632C12314900D5B653 /* MKAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKAPIRequest.swift; sourceTree = "<group>"; };
 		C47072EF2C1388E300CEBE51 /* TimeLineControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineControls.swift; sourceTree = "<group>"; };
+		C47ED9B12C14384900460523 /* PostTimeShort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTimeShort.swift; sourceTree = "<group>"; };
+		C47ED9B32C1449B700460523 /* OpenLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLink.swift; sourceTree = "<group>"; };
+		C47ED9B52C144C9A00460523 /* PostFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFiles.swift; sourceTree = "<group>"; };
 		C48D90C02C0C65700001D4FD /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
 		C4C0C4C52C0C578A00C61F4C /* PuffyHub Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PuffyHub Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C0C4CA2C0C578A00C61F4C /* PuffyHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuffyHubApp.swift; sourceTree = "<group>"; };
 		C4C0C4CC2C0C578A00C61F4C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C4C0C4CE2C0C578B00C61F4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4C0C4D12C0C578B00C61F4C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C4D240B92C149DF000252A9E /* PostRichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRichText.swift; sourceTree = "<group>"; };
+		C4D240BD2C14B8BB00252A9E /* ResizeCGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeCGImage.swift; sourceTree = "<group>"; };
 		C4E97CEA2C13AF8D006642C7 /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,15 +79,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4966F012C125DF200267433 /* QRCode in Frameworks */,
+				C47ED9D82C1492EE00460523 /* NukeWebP in Frameworks */,
+				C47ED9D52C14928C00460523 /* NukeUI in Frameworks */,
 				C44F66452C10F86400D5B653 /* BetterCodable in Frameworks */,
+				C47ED9DA2C1492EE00460523 /* NukeWebPAdvanced in Frameworks */,
 				C48D90C92C0C88150001D4FD /* SDWebImageWebPCoder in Frameworks */,
 				C48D90C42C0C701A0001D4FD /* SDWebImageSwiftUI in Frameworks */,
+				C47ED9D12C14928C00460523 /* Nuke in Frameworks */,
+				C47ED9DC2C1492EE00460523 /* NukeWebPBasic in Frameworks */,
+				C47ED9D32C14928C00460523 /* NukeExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C42696412C142989005990A0 /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				C42696422C14299E005990A0 /* TimeLine */,
+			);
+			path = Structures;
+			sourceTree = "<group>";
+		};
+		C42696422C14299E005990A0 /* TimeLine */ = {
+			isa = PBXGroup;
+			children = (
+				C42696432C1429AF005990A0 /* TimeLineRequest.swift */,
+				C42696452C145A78005990A0 /* TimeLineType.swift */,
+			);
+			path = TimeLine;
+			sourceTree = "<group>";
+		};
 		C44F663E2C10F77900D5B653 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,10 +134,12 @@
 		C44F66532C11A59D00D5B653 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C4D240B92C149DF000252A9E /* PostRichText.swift */,
 				C48D90C02C0C65700001D4FD /* PostItem.swift */,
 				C44F66542C11A64D00D5B653 /* TimeLine.swift */,
-				C44F66562C11BC4600D5B653 /* PostRichText.swift */,
 				C47072EF2C1388E300CEBE51 /* TimeLineControls.swift */,
+				C47ED9B12C14384900460523 /* PostTimeShort.swift */,
+				C47ED9B52C144C9A00460523 /* PostFiles.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -106,6 +149,8 @@
 			children = (
 				C44F66592C11CAB700D5B653 /* RichText.swift */,
 				C44F66632C12314900D5B653 /* MKAPIRequest.swift */,
+				C47ED9B32C1449B700460523 /* OpenLink.swift */,
+				C4D240BD2C14B8BB00252A9E /* ResizeCGImage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -113,6 +158,7 @@
 		C44F665B2C11E51500D5B653 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C4C0C4CC2C0C578A00C61F4C /* ContentView.swift */,
 				C44F665C2C11E52500D5B653 /* IntroView.swift */,
 				C44F665E2C12026200D5B653 /* AboutView.swift */,
 				C4E97CEA2C13AF8D006642C7 /* MeView.swift */,
@@ -148,12 +194,12 @@
 		C4C0C4C92C0C578A00C61F4C /* PuffyHub */ = {
 			isa = PBXGroup;
 			children = (
+				C42696412C142989005990A0 /* Structures */,
 				C44F66602C12160F00D5B653 /* Resources */,
 				C44F665B2C11E51500D5B653 /* Views */,
 				C44F66582C11CAA700D5B653 /* Utils */,
 				C44F66532C11A59D00D5B653 /* Components */,
 				C4C0C4CA2C0C578A00C61F4C /* PuffyHubApp.swift */,
-				C4C0C4CC2C0C578A00C61F4C /* ContentView.swift */,
 				C4C0C4CE2C0C578B00C61F4C /* Assets.xcassets */,
 				C4C0C4D02C0C578B00C61F4C /* Preview Content */,
 			);
@@ -189,6 +235,12 @@
 				C48D90C82C0C88150001D4FD /* SDWebImageWebPCoder */,
 				C44F66442C10F86400D5B653 /* BetterCodable */,
 				C4966F002C125DF200267433 /* QRCode */,
+				C47ED9D02C14928C00460523 /* Nuke */,
+				C47ED9D22C14928C00460523 /* NukeExtensions */,
+				C47ED9D42C14928C00460523 /* NukeUI */,
+				C47ED9D72C1492EE00460523 /* NukeWebP */,
+				C47ED9D92C1492EE00460523 /* NukeWebPAdvanced */,
+				C47ED9DB2C1492EE00460523 /* NukeWebPBasic */,
 			);
 			productName = "PuffyHub Watch App";
 			productReference = C4C0C4C52C0C578A00C61F4C /* PuffyHub Watch App.app */;
@@ -223,6 +275,8 @@
 				C48D90C72C0C88150001D4FD /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */,
 				C44F66432C10F86400D5B653 /* XCRemoteSwiftPackageReference "BetterCodable" */,
 				C4966EFF2C125DF200267433 /* XCRemoteSwiftPackageReference "QRCode" */,
+				C47ED9CF2C14928C00460523 /* XCRemoteSwiftPackageReference "Nuke" */,
+				C47ED9D62C1492EE00460523 /* XCRemoteSwiftPackageReference "NukeWebP" */,
 			);
 			productRefGroup = C4C0C4C02C0C578A00C61F4C /* Products */;
 			projectDirPath = "";
@@ -251,13 +305,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C47ED9B22C14384900460523 /* PostTimeShort.swift in Sources */,
 				C44F664E2C10F91C00D5B653 /* MKUser.swift in Sources */,
 				C48D90C12C0C65700001D4FD /* PostItem.swift in Sources */,
+				C47ED9B62C144C9A00460523 /* PostFiles.swift in Sources */,
 				C47072F02C1388E300CEBE51 /* TimeLineControls.swift in Sources */,
 				C44F66642C12314900D5B653 /* MKAPIRequest.swift in Sources */,
+				C47ED9B42C1449B700460523 /* OpenLink.swift in Sources */,
 				C4E97CEB2C13AF8D006642C7 /* MeView.swift in Sources */,
-				C44F66572C11BC4600D5B653 /* PostRichText.swift in Sources */,
 				C44F66502C10F95D00D5B653 /* MKInstance.swift in Sources */,
+				C42696442C1429AF005990A0 /* TimeLineRequest.swift in Sources */,
 				C44F665F2C12026200D5B653 /* AboutView.swift in Sources */,
 				C44F664C2C10F90A00D5B653 /* MKEmoji.swift in Sources */,
 				C44F665D2C11E52500D5B653 /* IntroView.swift in Sources */,
@@ -266,7 +323,10 @@
 				C44F66522C10F9EC00D5B653 /* MKDriveFile.swift in Sources */,
 				C44F66552C11A64D00D5B653 /* TimeLine.swift in Sources */,
 				C44F665A2C11CAB700D5B653 /* RichText.swift in Sources */,
+				C42696462C145A78005990A0 /* TimeLineType.swift in Sources */,
 				C4C0C4CB2C0C578A00C61F4C /* PuffyHubApp.swift in Sources */,
+				C4D240BA2C149DF000252A9E /* PostRichText.swift in Sources */,
+				C4D240BE2C14B8BB00252A9E /* ResizeCGImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +470,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.1;
+				MARKETING_VERSION = 0.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -440,7 +500,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.1;
+				MARKETING_VERSION = 0.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -485,6 +545,22 @@
 				minimumVersion = 0.4.0;
 			};
 		};
+		C47ED9CF2C14928C00460523 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.7.1;
+			};
+		};
+		C47ED9D62C1492EE00460523 /* XCRemoteSwiftPackageReference "NukeWebP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/makleso6/NukeWebP";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
+			};
+		};
 		C48D90C22C0C701A0001D4FD /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
@@ -516,6 +592,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C44F66432C10F86400D5B653 /* XCRemoteSwiftPackageReference "BetterCodable" */;
 			productName = BetterCodable;
+		};
+		C47ED9D02C14928C00460523 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C47ED9CF2C14928C00460523 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		C47ED9D22C14928C00460523 /* NukeExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C47ED9CF2C14928C00460523 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeExtensions;
+		};
+		C47ED9D42C14928C00460523 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C47ED9CF2C14928C00460523 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
+		C47ED9D72C1492EE00460523 /* NukeWebP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C47ED9D62C1492EE00460523 /* XCRemoteSwiftPackageReference "NukeWebP" */;
+			productName = NukeWebP;
+		};
+		C47ED9D92C1492EE00460523 /* NukeWebPAdvanced */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C47ED9D62C1492EE00460523 /* XCRemoteSwiftPackageReference "NukeWebP" */;
+			productName = NukeWebPAdvanced;
+		};
+		C47ED9DB2C1492EE00460523 /* NukeWebPBasic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C47ED9D62C1492EE00460523 /* XCRemoteSwiftPackageReference "NukeWebP" */;
+			productName = NukeWebPBasic;
 		};
 		C48D90C32C0C701A0001D4FD /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import AuthenticationServices
 
 struct SpinnerView: View {
   var body: some View {
@@ -15,20 +14,6 @@ struct SpinnerView: View {
         .progressViewStyle(.circular)
   }
 }
-
-public enum TimeLineType: String {
-    case home
-    case local
-    case hybrid
-    case global
-}
-
-public let type_APIString: [TimeLineType: String] = [
-    .home: "notes/timeline",
-    .local: "notes/local-timeline",
-    .hybrid: "notes/hybrid-timeline",
-    .global: "notes/global-timeline"
-]
 
 public func loadData(sinceId: String? = nil, timeLineData: TimeLineData, appSettings: AppSettings) async {
     let server = appSettings.server
@@ -57,7 +42,6 @@ public func loadData(sinceId: String? = nil, timeLineData: TimeLineData, appSett
         }
     }
     
-    
     let response: RequestResponse = await MKAPIRequest(server: server, endpoint: APIString!, postBody: postBody, token: token)
     if response.success == false {
         return
@@ -81,6 +65,8 @@ public func loadData(sinceId: String? = nil, timeLineData: TimeLineData, appSett
                            var renoteItem = try? JSONDecoder().decode(MKNote.self, from: renoteData) {
                             renoteItem.isReposted = true
                             renoteItem.repostUser = postItem.user
+                            renoteItem.id = postItem.id
+                            renoteItem.createdAt = postItem.createdAt
                             tempResults.append(renoteItem)
                         }
                     }
@@ -110,20 +96,6 @@ public func loadData(sinceId: String? = nil, timeLineData: TimeLineData, appSett
     }
 }
 
-func openLink(url: String) {
-    guard let swift_URL = URL(string: url) else {
-        return
-    }
-    // Source: https://www.reddit.com/r/apple/comments/rcn2h7/comment/hnwr8do/
-    let session = ASWebAuthenticationSession(
-        url: swift_URL,
-        callbackURLScheme: nil
-    ) { _, _ in
-    }
-    session.prefersEphemeralWebBrowserSession = true
-    session.start()
-}
-
 
 struct TimeLineView: View {
     @EnvironmentObject var timeLineData: TimeLineData
@@ -133,20 +105,18 @@ struct TimeLineView: View {
         VStack {
             if (timeLineData.statusCode == 200 && timeLineData.loading == false) {
                 ScrollView{
-                    VStack{
-                        TimeLineControls()
-                        LazyVStack {
-                            ForEach(timeLineData.timeline, id: \.id) { item in
-                                PostItem(item: item)
-                                    .onAppear {
-                                        if item.id == timeLineData.timeline.last?.id && !timeLineData.isLoadingMore && !timeLineData.loading {
-                                            Task {
-                                                await loadData(sinceId: timeLineData.lastLoadedId, timeLineData: timeLineData, appSettings: appSettings)
-                                            }
+                    TimeLineControls()
+                    LazyVStack {
+                        ForEach(timeLineData.timeline, id: \.id) { item in
+                            PostItem(item: item)
+                                .onAppear {
+                                    if item.id == timeLineData.timeline.last?.id && !timeLineData.isLoadingMore && !timeLineData.loading {
+                                        Task {
+                                            await loadData(sinceId: timeLineData.lastLoadedId, timeLineData: timeLineData, appSettings: appSettings)
                                         }
                                     }
-                                Spacer()
-                            }
+                                }
+                            Spacer()
                         }
                     }
                 }

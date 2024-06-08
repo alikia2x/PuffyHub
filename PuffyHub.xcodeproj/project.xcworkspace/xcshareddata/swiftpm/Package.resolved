@@ -1,5 +1,5 @@
 {
-  "originHash" : "2eea3b3a254e01cfa2fae81cc4cacec7d45c846a1df4c5ab5ab7b05cf7d0f325",
+  "originHash" : "20304c621a19353008565cb2c8f3374a3218b05a3f4386fbafcc479021c110c1",
   "pins" : [
     {
       "identity" : "bettercodable",
@@ -17,6 +17,24 @@
       "state" : {
         "revision" : "b2b1d20a90b14d11f6ef4241da6b81c1d3f171e4",
         "version" : "1.3.2"
+      }
+    },
+    {
+      "identity" : "nuke",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Nuke",
+      "state" : {
+        "revision" : "2efd206503e99dd3a88a4dc433a76f98ce8cc198",
+        "version" : "12.7.1"
+      }
+    },
+    {
+      "identity" : "nukewebp",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/makleso6/NukeWebP",
+      "state" : {
+        "revision" : "9bd16d47901338c1497fe14f27de5a5db8b91c2c",
+        "version" : "1.1.1"
       }
     },
     {
