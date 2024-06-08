@@ -16,9 +16,15 @@ PuffyHub is a [Misskey](https://misskey-hub.net) client for [watchOS](https://ww
 - [x] Switch timeline between home, local, hybrid and global
 - [x] Support renote
 - [x] Open link in browser on your watch
-- [ ] Customize emoji support
+- [x] Customize emoji support
 - [ ] Support note details view
-- [ ] Sending post, and reply/renote
+- [ ] Sending note
+- [ ] Reply
+- [ ] Renote
+
+## 🔧 For Developers
+
+You can check out our [documentation](./Docs/README.md) for more details.
 
 ## 🥰 Thanks
 

@@ -138,8 +138,9 @@ struct TimeLineView: View {
 }
 
 #Preview {
-    TimeLineView()
-        .environmentObject(AppSettings.example)
-        .environmentObject(TimeLineData())
-        
+    NavigationStack{
+        TimeLineView()
+            .environmentObject(AppSettings.example)
+            .environmentObject(TimeLineData())
+    }
 }

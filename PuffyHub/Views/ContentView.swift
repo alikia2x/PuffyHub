@@ -12,15 +12,6 @@ public class AppSettings: ObservableObject {
     @AppStorage("instance") var server: String = ""
 }
 
-extension AppSettings {
-    static var example: AppSettings {
-        let settings = AppSettings()
-        settings.token = "wg8VBaCVPnHWqDV2ln4Z5li8K7UdQg8U"
-        settings.server = "https://social.a2x.pub/"
-        return settings
-    }
-}
-
 public class TimeLineData: ObservableObject {
     @Published var timeline: [MKNote] = []
     @Published var timelineType: TimeLineType = .home
@@ -47,7 +38,6 @@ struct MainAppView: View {
 struct ContentView: View {
     @EnvironmentObject var timeLineData: TimeLineData
     @EnvironmentObject var appSettings: AppSettings
-    
     
     var body: some View {
         TabView {

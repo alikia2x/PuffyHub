@@ -12,7 +12,7 @@ struct TimeLineControls: View {
     @EnvironmentObject var appSettings: AppSettings
     @State private var switchingTimeLine: Bool = false
     var body: some View {
-        HStack{
+        HStack (spacing: 3.0){
             Button(action: {
                 switchingTimeLine = true
             }) {
@@ -21,8 +21,8 @@ struct TimeLineControls: View {
                     Text(TLType_Text[timeLineData.timelineType]!)
                 }
             }
-            .frame(width: 120)
-            .buttonBorderShape(.roundedRectangle(radius: 12.0))
+            .frame(width: 100)
+            .buttonBorderShape(.roundedRectangle(radius: 6.0))
             .confirmationDialog("Select Timeline", isPresented: $switchingTimeLine, titleVisibility: .visible) {
                 ForEach(TLType_Text.sorted{(first, second) -> Bool in return first.value > second.value}, id: \.key) { key, value in
                     Button(action: {
@@ -35,21 +35,26 @@ struct TimeLineControls: View {
                     }
                 }
             }
+            NavigationLink(destination: PostView(), label: {
+                Image(systemName: "paperplane")
+            })
+            .buttonBorderShape(.roundedRectangle(radius: 6.0))
             Button(action: {
                 Task {
-                    print("Refresh")
                     await loadData(timeLineData: timeLineData, appSettings: appSettings)
                 }
             }) {
                 Image(systemName: "arrow.counterclockwise")
             }
-            .buttonBorderShape(.roundedRectangle(radius: 12.0))
+            .buttonBorderShape(.roundedRectangle(radius: 6.0))
         }
     }
 }
 
 #Preview {
-    TimeLineControls()
-        .environmentObject(TimeLineData())
-        .environmentObject(AppSettings.example)
+    NavigationStack {
+        TimeLineControls()
+            .environmentObject(TimeLineData())
+            .environmentObject(AppSettings.example)
+    }
 }

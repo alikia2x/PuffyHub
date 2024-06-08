@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C42696442C1429AF005990A0 /* TimeLineRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42696432C1429AF005990A0 /* TimeLineRequest.swift */; };
 		C42696462C145A78005990A0 /* TimeLineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42696452C145A78005990A0 /* TimeLineType.swift */; };
+		C428619A2C14C930006842BF /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42861992C14C930006842BF /* PostView.swift */; };
 		C44F66452C10F86400D5B653 /* BetterCodable in Frameworks */ = {isa = PBXBuildFile; productRef = C44F66442C10F86400D5B653 /* BetterCodable */; };
 		C44F664A2C10F8ED00D5B653 /* MKNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F66492C10F8ED00D5B653 /* MKNote.swift */; };
 		C44F664C2C10F90A00D5B653 /* MKEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F664B2C10F90A00D5B653 /* MKEmoji.swift */; };
@@ -35,6 +36,8 @@
 		C48D90C42C0C701A0001D4FD /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C32C0C701A0001D4FD /* SDWebImageSwiftUI */; };
 		C48D90C92C0C88150001D4FD /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C82C0C88150001D4FD /* SDWebImageWebPCoder */; };
 		C4966F012C125DF200267433 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = C4966F002C125DF200267433 /* QRCode */; };
+		C49C75D02C14CD9300BD2EE6 /* AppSettingsPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C75CF2C14CD9300BD2EE6 /* AppSettingsPreview.swift */; };
+		C49C75D32C14D17300BD2EE6 /* MKCreatePostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C75D22C14D17300BD2EE6 /* MKCreatePostRequest.swift */; };
 		C4C0C4CB2C0C578A00C61F4C /* PuffyHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C0C4CA2C0C578A00C61F4C /* PuffyHubApp.swift */; };
 		C4C0C4CD2C0C578A00C61F4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C0C4CC2C0C578A00C61F4C /* ContentView.swift */; };
 		C4C0C4CF2C0C578B00C61F4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4C0C4CE2C0C578B00C61F4C /* Assets.xcassets */; };
@@ -47,6 +50,7 @@
 /* Begin PBXFileReference section */
 		C42696432C1429AF005990A0 /* TimeLineRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineRequest.swift; sourceTree = "<group>"; };
 		C42696452C145A78005990A0 /* TimeLineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineType.swift; sourceTree = "<group>"; };
+		C42861992C14C930006842BF /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		C44F66492C10F8ED00D5B653 /* MKNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKNote.swift; sourceTree = "<group>"; };
 		C44F664B2C10F90A00D5B653 /* MKEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKEmoji.swift; sourceTree = "<group>"; };
 		C44F664D2C10F91C00D5B653 /* MKUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKUser.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 		C47ED9B32C1449B700460523 /* OpenLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLink.swift; sourceTree = "<group>"; };
 		C47ED9B52C144C9A00460523 /* PostFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFiles.swift; sourceTree = "<group>"; };
 		C48D90C02C0C65700001D4FD /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
+		C49C75CF2C14CD9300BD2EE6 /* AppSettingsPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettingsPreview.swift; sourceTree = "<group>"; };
+		C49C75D22C14D17300BD2EE6 /* MKCreatePostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCreatePostRequest.swift; sourceTree = "<group>"; };
 		C4C0C4C52C0C578A00C61F4C /* PuffyHub Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PuffyHub Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C0C4CA2C0C578A00C61F4C /* PuffyHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuffyHubApp.swift; sourceTree = "<group>"; };
 		C4C0C4CC2C0C578A00C61F4C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,14 +100,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C42696412C142989005990A0 /* Structures */ = {
-			isa = PBXGroup;
-			children = (
-				C42696422C14299E005990A0 /* TimeLine */,
-			);
-			path = Structures;
-			sourceTree = "<group>";
-		};
 		C42696422C14299E005990A0 /* TimeLine */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				C44F663F2C10F7AF00D5B653 /* Structs */,
+				C44F66592C11CAB700D5B653 /* RichText.swift */,
+				C44F66632C12314900D5B653 /* MKAPIRequest.swift */,
+				C47ED9B32C1449B700460523 /* OpenLink.swift */,
+				C4D240BD2C14B8BB00252A9E /* ResizeCGImage.swift */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -122,11 +124,13 @@
 		C44F663F2C10F7AF00D5B653 /* Structs */ = {
 			isa = PBXGroup;
 			children = (
+				C42696422C14299E005990A0 /* TimeLine */,
 				C44F66492C10F8ED00D5B653 /* MKNote.swift */,
 				C44F664B2C10F90A00D5B653 /* MKEmoji.swift */,
 				C44F664D2C10F91C00D5B653 /* MKUser.swift */,
 				C44F664F2C10F95D00D5B653 /* MKInstance.swift */,
 				C44F66512C10F9EC00D5B653 /* MKDriveFile.swift */,
+				C49C75D22C14D17300BD2EE6 /* MKCreatePostRequest.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -144,17 +148,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		C44F66582C11CAA700D5B653 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				C44F66592C11CAB700D5B653 /* RichText.swift */,
-				C44F66632C12314900D5B653 /* MKAPIRequest.swift */,
-				C47ED9B32C1449B700460523 /* OpenLink.swift */,
-				C4D240BD2C14B8BB00252A9E /* ResizeCGImage.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		C44F665B2C11E51500D5B653 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +155,7 @@
 				C44F665C2C11E52500D5B653 /* IntroView.swift */,
 				C44F665E2C12026200D5B653 /* AboutView.swift */,
 				C4E97CEA2C13AF8D006642C7 /* MeView.swift */,
+				C42861992C14C930006842BF /* PostView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,10 +168,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		C49C75CC2C14CCB000BD2EE6 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
 		C4C0C4B82C0C578A00C61F4C = {
 			isa = PBXGroup;
 			children = (
-				C44F663E2C10F77900D5B653 /* Frameworks */,
 				C4C0C4C92C0C578A00C61F4C /* PuffyHub */,
 				C4C0C4C02C0C578A00C61F4C /* Products */,
 			);
@@ -194,14 +194,14 @@
 		C4C0C4C92C0C578A00C61F4C /* PuffyHub */ = {
 			isa = PBXGroup;
 			children = (
-				C42696412C142989005990A0 /* Structures */,
+				C44F66532C11A59D00D5B653 /* Components */,
+				C49C75CC2C14CCB000BD2EE6 /* Debug */,
+				C44F663E2C10F77900D5B653 /* Frameworks */,
+				C4C0C4D02C0C578B00C61F4C /* Preview Content */,
 				C44F66602C12160F00D5B653 /* Resources */,
 				C44F665B2C11E51500D5B653 /* Views */,
-				C44F66582C11CAA700D5B653 /* Utils */,
-				C44F66532C11A59D00D5B653 /* Components */,
 				C4C0C4CA2C0C578A00C61F4C /* PuffyHubApp.swift */,
 				C4C0C4CE2C0C578B00C61F4C /* Assets.xcassets */,
-				C4C0C4D02C0C578B00C61F4C /* Preview Content */,
 			);
 			path = PuffyHub;
 			sourceTree = "<group>";
@@ -209,6 +209,7 @@
 		C4C0C4D02C0C578B00C61F4C /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				C49C75CF2C14CD9300BD2EE6 /* AppSettingsPreview.swift */,
 				C4C0C4D12C0C578B00C61F4C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -312,13 +313,16 @@
 				C47072F02C1388E300CEBE51 /* TimeLineControls.swift in Sources */,
 				C44F66642C12314900D5B653 /* MKAPIRequest.swift in Sources */,
 				C47ED9B42C1449B700460523 /* OpenLink.swift in Sources */,
+				C49C75D02C14CD9300BD2EE6 /* AppSettingsPreview.swift in Sources */,
 				C4E97CEB2C13AF8D006642C7 /* MeView.swift in Sources */,
 				C44F66502C10F95D00D5B653 /* MKInstance.swift in Sources */,
 				C42696442C1429AF005990A0 /* TimeLineRequest.swift in Sources */,
+				C49C75D32C14D17300BD2EE6 /* MKCreatePostRequest.swift in Sources */,
 				C44F665F2C12026200D5B653 /* AboutView.swift in Sources */,
 				C44F664C2C10F90A00D5B653 /* MKEmoji.swift in Sources */,
 				C44F665D2C11E52500D5B653 /* IntroView.swift in Sources */,
 				C44F664A2C10F8ED00D5B653 /* MKNote.swift in Sources */,
+				C428619A2C14C930006842BF /* PostView.swift in Sources */,
 				C4C0C4CD2C0C578A00C61F4C /* ContentView.swift in Sources */,
 				C44F66522C10F9EC00D5B653 /* MKDriveFile.swift in Sources */,
 				C44F66552C11A64D00D5B653 /* TimeLine.swift in Sources */,
@@ -470,7 +474,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.6.0;
+				MARKETING_VERSION = 0.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -500,7 +504,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.6.0;
+				MARKETING_VERSION = 0.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
