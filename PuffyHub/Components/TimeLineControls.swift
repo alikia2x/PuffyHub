@@ -18,7 +18,7 @@ struct TimeLineControls: View {
             }) {
                 HStack (spacing: 0){
                     Image(systemName: TLType_Image[timeLineData.timelineType]!)
-                    Text(TLType_Text[timeLineData.timelineType]!)
+                    Text(LocalizedStringKey(TLType_Text[timeLineData.timelineType]!))
                 }
             }
             .frame(width: 92)
@@ -31,7 +31,7 @@ struct TimeLineControls: View {
                             await loadData(timeLineData: timeLineData, appSettings: appSettings)
                         }
                     }) {
-                        Text(value)
+                        Text(LocalizedStringKey(value))
                     }
                 }
             }
