@@ -18,11 +18,11 @@ PuffyHub is a [Misskey](https://misskey-hub.net) client for [watchOS](https://ww
 - [x] Open link in browser on your watch
 - [x] Customize emoji support
 - [x] Sending note
+- [x] Reply
+- [x] Like reaction
+- [x] Support note detailed view
 - [ ] Support CW(NSFW) in timeline
-- [ ] Support quote(renote) preview in timeline
-- [ ] Support note details view
-- [ ] Reply
-- [ ] Renote & Like reaction
+- [ ] Renote
 - [ ] Renote (quote)
 - [ ] Personal profile
 
