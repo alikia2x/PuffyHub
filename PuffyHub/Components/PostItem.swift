@@ -64,7 +64,7 @@ struct PostItem: View {
     var body: some View {
         VStack(alignment: .leading){
             if (item.isReposted != nil && item.isReposted!) {
-                Text("Reposted by " + item.repostUser!.username)
+                Text("Renoted by \(item.repostUser!.name ?? item.repostUser!.username)")
             }
             
             HStack{
@@ -84,8 +84,7 @@ struct PostItem: View {
                 .cornerRadius(3.0)
                 
                 VStack(alignment: .leading){
-                    Text(name)
-                        .font(.caption .weight(.semibold))
+                    PostRichText(rawText: name, postHost: item.user.host, server: appSettings.server)
                     Text(verbatim: username)
                         .font(.footnote .weight(.light))
                         .foregroundStyle(.secondary)

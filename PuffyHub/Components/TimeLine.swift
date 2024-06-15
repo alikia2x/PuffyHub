@@ -56,18 +56,25 @@ public func loadData(sinceId: String? = nil, timeLineData: TimeLineData, appSett
             var tempResults: [MKNote] = []
             for jsonDict in jsonArray {
                 if let postData = try? JSONSerialization.data(withJSONObject: jsonDict, options: []),
-                   let postItem = try? JSONDecoder().decode(MKNote.self, from: postData) {
+                   var postItem = try? JSONDecoder().decode(MKNote.self, from: postData) {
                     if (jsonDict["renote"] == nil){
                         tempResults.append(postItem)
                     }
                     else {
                         if let renoteData = try? JSONSerialization.data(withJSONObject: jsonDict["renote"] as Any, options: []),
                            var renoteItem = try? JSONDecoder().decode(MKNote.self, from: renoteData) {
-                            renoteItem.isReposted = true
-                            renoteItem.repostUser = postItem.user
-                            renoteItem.id = postItem.id
-                            renoteItem.createdAt = postItem.createdAt
-                            tempResults.append(renoteItem)
+                            if (postItem.text != nil || postItem.cw != nil || postItem.fileIds != nil) {
+                                postItem.isReposted = true
+                                postItem.repostUser = postItem.user
+                                tempResults.append(postItem)
+                            }
+                            else {
+                                renoteItem.id = postItem.id
+                                renoteItem.createdAt = postItem.createdAt
+                                renoteItem.isReposted = true
+                                renoteItem.repostUser = postItem.user
+                                tempResults.append(renoteItem)
+                            }
                         }
                     }
                 }
@@ -108,14 +115,19 @@ struct TimeLineView: View {
                     TimeLineControls()
                     LazyVStack {
                         ForEach(timeLineData.timeline, id: \.id) { item in
-                            PostItem(item: item)
-                                .onAppear {
-                                    if item.id == timeLineData.timeline.last?.id && !timeLineData.isLoadingMore && !timeLineData.loading {
-                                        Task {
-                                            await loadData(sinceId: timeLineData.lastLoadedId, timeLineData: timeLineData, appSettings: appSettings)
+                            NavigationLink(destination: {
+                                PostDetailView(item: item)
+                            }){
+                                PostItem(item: item)
+                                    .onAppear {
+                                        if item.id == timeLineData.timeline.last?.id && !timeLineData.isLoadingMore && !timeLineData.loading {
+                                            Task {
+                                                await loadData(sinceId: timeLineData.lastLoadedId, timeLineData: timeLineData, appSettings: appSettings)
+                                            }
                                         }
                                     }
-                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
                             Spacer()
                         }
                     }
@@ -139,8 +151,15 @@ struct TimeLineView: View {
 
 #Preview {
     NavigationStack{
+        let previewTLData = TimeLineData()
+        let previewSettings = AppSettings.example
         TimeLineView()
-            .environmentObject(AppSettings.example)
-            .environmentObject(TimeLineData())
+            .environmentObject(previewSettings)
+            .environmentObject(previewTLData)
+            .onAppear(){
+                Task {
+                    await loadData(timeLineData: previewTLData, appSettings: previewSettings)
+                }
+            }
     }
 }

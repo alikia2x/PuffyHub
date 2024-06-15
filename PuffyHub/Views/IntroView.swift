@@ -77,7 +77,7 @@ struct LoginView: View {
                                 var fuck: String
                             }
                             let response = await MKAPIRequest(server: baseURL, endpoint: checkEndpoint, postBody: rqBody(fuck: "fuck you"))
-                            print((response.response as! HTTPURLResponse).statusCode)
+                            //print((response.response as! HTTPURLResponse).statusCode)
                             if let decodedResponse = try? JSONDecoder().decode(MIAuthCheckResponse.self, from: response.data!) {
                                 appSettings.token = decodedResponse.token
                                 appSettings.server = baseURL

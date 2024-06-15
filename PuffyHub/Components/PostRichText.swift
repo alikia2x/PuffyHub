@@ -101,7 +101,7 @@ struct PostRichText: View {
                 context: [.storeCacheType: SDImageCacheType.none.rawValue],
                 progress: nil,
                 completed: { (image, data, error, cacheType, finished, url) in
-                    if let resizedImage = resizeCGImage(image?.cgImage, toHeight: 22), let url = url {
+                    if let resizedImage = resizeCGImage(image?.cgImage, toHeight: 18), let url = url {
                         DispatchQueue.main.async {
                             cgImages[url] = resizedImage
                         }

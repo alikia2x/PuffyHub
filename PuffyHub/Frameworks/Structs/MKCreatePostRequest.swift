@@ -17,6 +17,7 @@ public struct MKCreatePostRequest: Codable {
     public var visibility: String = "public"
     public var fileIds: [String]?
     @LossyOptional public var visibleUserIds: [String]?
+    public var replyId: String?
 
     public struct Poll: Codable {
         @LossyOptional public var expiresAt: Int? // in ms, Date().timeIntervalSince1970 * 1000
@@ -37,7 +38,8 @@ public struct MKCreatePostRequest: Codable {
         cw: String?,
         localOnly: Bool = false,
         visibility: String = "public",
-        visibleUserIds: [String]?
+        visibleUserIds: [String]?,
+        replyId: String?
     ) {
         self.text = text
         self.poll = poll
@@ -47,6 +49,9 @@ public struct MKCreatePostRequest: Codable {
         self.visibleUserIds = visibleUserIds
         if (fileIds != nil) {
             self.fileIds = fileIds
+        }
+        if (replyId != nil) {
+            self.replyId = replyId
         }
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct PostView: View {
+    var replyId: String?
     @State private var postText: String = ""
     @State private var statusCode: Int = -1
     @State private var sending: Bool = false
@@ -18,7 +19,7 @@ struct PostView: View {
         ScrollView {
             TextField("Post content...", text: $postText)
             Button(action: {
-                let postBody = MKCreatePostRequest(text: postText, fileIds: nil, poll: nil, cw: nil, visibleUserIds: [])
+                let postBody = MKCreatePostRequest(text: postText, fileIds: nil, poll: nil, cw: nil, visibleUserIds: [], replyId: replyId)
                 Task {
                     sending = true
                     let response: RequestResponse = await MKAPIRequest(server: appSettings.server, endpoint: "notes/create", postBody: postBody, token: appSettings.token)

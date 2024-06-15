@@ -37,6 +37,7 @@
 		C48D90C42C0C701A0001D4FD /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C32C0C701A0001D4FD /* SDWebImageSwiftUI */; };
 		C48D90C92C0C88150001D4FD /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C82C0C88150001D4FD /* SDWebImageWebPCoder */; };
 		C48F46532C1DD86A004A1D1B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C48F46522C1DD86A004A1D1B /* Localizable.xcstrings */; };
+		C48F46552C1DEE48004A1D1B /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48F46542C1DEE48004A1D1B /* PostDetailView.swift */; };
 		C4966F012C125DF200267433 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = C4966F002C125DF200267433 /* QRCode */; };
 		C49C75D32C14D17300BD2EE6 /* MKCreatePostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C75D22C14D17300BD2EE6 /* MKCreatePostRequest.swift */; };
 		C4C0C4CB2C0C578A00C61F4C /* PuffyHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C0C4CA2C0C578A00C61F4C /* PuffyHubApp.swift */; };
@@ -70,6 +71,7 @@
 		C47ED9B52C144C9A00460523 /* PostFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFiles.swift; sourceTree = "<group>"; };
 		C48D90C02C0C65700001D4FD /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
 		C48F46522C1DD86A004A1D1B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		C48F46542C1DEE48004A1D1B /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
 		C49C75D22C14D17300BD2EE6 /* MKCreatePostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCreatePostRequest.swift; sourceTree = "<group>"; };
 		C4C0C4C52C0C578A00C61F4C /* PuffyHub Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PuffyHub Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C0C4CA2C0C578A00C61F4C /* PuffyHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuffyHubApp.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				C44F665E2C12026200D5B653 /* AboutView.swift */,
 				C4E97CEA2C13AF8D006642C7 /* MeView.swift */,
 				C42861992C14C930006842BF /* PostView.swift */,
+				C48F46542C1DEE48004A1D1B /* PostDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				C44F66522C10F9EC00D5B653 /* MKDriveFile.swift in Sources */,
 				C44F66552C11A64D00D5B653 /* TimeLine.swift in Sources */,
 				C44F665A2C11CAB700D5B653 /* RichText.swift in Sources */,
+				C48F46552C1DEE48004A1D1B /* PostDetailView.swift in Sources */,
 				C42696462C145A78005990A0 /* TimeLineType.swift in Sources */,
 				C4C0C4CB2C0C578A00C61F4C /* PuffyHubApp.swift in Sources */,
 				C4D240BA2C149DF000252A9E /* PostRichText.swift in Sources */,
@@ -470,7 +474,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.8.2;
+				CURRENT_PROJECT_VERSION = 0.9.0;
 				DEVELOPMENT_ASSET_PATHS = "\"PuffyHub/Preview Content\"";
 				DEVELOPMENT_TEAM = 644FU9Z647;
 				ENABLE_PREVIEWS = NO;
@@ -483,7 +487,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.8.2;
+				MARKETING_VERSION = 0.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -503,7 +507,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.8.2;
+				CURRENT_PROJECT_VERSION = 0.9.0;
 				DEVELOPMENT_ASSET_PATHS = "\"PuffyHub/Preview Content\"";
 				DEVELOPMENT_TEAM = 644FU9Z647;
 				ENABLE_PREVIEWS = NO;
@@ -516,7 +520,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.8.2;
+				MARKETING_VERSION = 0.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
