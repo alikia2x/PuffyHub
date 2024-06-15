@@ -36,6 +36,7 @@
 		C48D90C12C0C65700001D4FD /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D90C02C0C65700001D4FD /* PostItem.swift */; };
 		C48D90C42C0C701A0001D4FD /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C32C0C701A0001D4FD /* SDWebImageSwiftUI */; };
 		C48D90C92C0C88150001D4FD /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C82C0C88150001D4FD /* SDWebImageWebPCoder */; };
+		C48F46532C1DD86A004A1D1B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C48F46522C1DD86A004A1D1B /* Localizable.xcstrings */; };
 		C4966F012C125DF200267433 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = C4966F002C125DF200267433 /* QRCode */; };
 		C49C75D32C14D17300BD2EE6 /* MKCreatePostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C75D22C14D17300BD2EE6 /* MKCreatePostRequest.swift */; };
 		C4C0C4CB2C0C578A00C61F4C /* PuffyHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C0C4CA2C0C578A00C61F4C /* PuffyHubApp.swift */; };
@@ -68,6 +69,7 @@
 		C47ED9B32C1449B700460523 /* OpenLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLink.swift; sourceTree = "<group>"; };
 		C47ED9B52C144C9A00460523 /* PostFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFiles.swift; sourceTree = "<group>"; };
 		C48D90C02C0C65700001D4FD /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
+		C48F46522C1DD86A004A1D1B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		C49C75D22C14D17300BD2EE6 /* MKCreatePostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCreatePostRequest.swift; sourceTree = "<group>"; };
 		C4C0C4C52C0C578A00C61F4C /* PuffyHub Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PuffyHub Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C0C4CA2C0C578A00C61F4C /* PuffyHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuffyHubApp.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		C4C0C4B82C0C578A00C61F4C = {
 			isa = PBXGroup;
 			children = (
+				C48F46522C1DD86A004A1D1B /* Localizable.xcstrings */,
 				C4C0C4C92C0C578A00C61F4C /* PuffyHub */,
 				C4C0C4C02C0C578A00C61F4C /* Products */,
 			);
@@ -268,7 +271,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				"zh-Hans",
+				ja,
 			);
 			mainGroup = C4C0C4B82C0C578A00C61F4C;
 			packageReferences = (
@@ -295,6 +299,7 @@
 			files = (
 				C44F66622C12161F00D5B653 /* LICENSE in Resources */,
 				C4C0C4D22C0C578B00C61F4C /* Preview Assets.xcassets in Resources */,
+				C48F46532C1DD86A004A1D1B /* Localizable.xcstrings in Resources */,
 				C4C0C4CF2C0C578B00C61F4C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,6 +400,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
@@ -452,6 +458,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
@@ -463,12 +470,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.8.1;
+				CURRENT_PROJECT_VERSION = 0.8.2;
 				DEVELOPMENT_ASSET_PATHS = "\"PuffyHub/Preview Content\"";
 				DEVELOPMENT_TEAM = 644FU9Z647;
 				ENABLE_PREVIEWS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_CFBundleDisplayName = PuffyHub;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -477,7 +483,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.8.1;
+				MARKETING_VERSION = 0.8.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -497,12 +503,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.8.1;
+				CURRENT_PROJECT_VERSION = 0.8.2;
 				DEVELOPMENT_ASSET_PATHS = "\"PuffyHub/Preview Content\"";
 				DEVELOPMENT_TEAM = 644FU9Z647;
 				ENABLE_PREVIEWS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_CFBundleDisplayName = PuffyHub;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -511,7 +516,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.8.1;
+				MARKETING_VERSION = 0.8.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

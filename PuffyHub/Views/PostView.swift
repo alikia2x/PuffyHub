@@ -15,34 +15,40 @@ struct PostView: View {
     @EnvironmentObject var appSettings: AppSettings
     
     var body: some View {
-        TextField("Post content...", text: $postText)
-        Button(action: {
-            let postBody = MKCreatePostRequest(text: postText, fileIds: nil, poll: nil, cw: nil, visibleUserIds: [])
-            Task {
-                sending = true
-                let response: RequestResponse = await MKAPIRequest(server: appSettings.server, endpoint: "notes/create", postBody: postBody, token: appSettings.token)
-                sending = false
-                if response.success == false {
-                    return
+        ScrollView {
+            TextField("Post content...", text: $postText)
+            Button(action: {
+                let postBody = MKCreatePostRequest(text: postText, fileIds: nil, poll: nil, cw: nil, visibleUserIds: [])
+                Task {
+                    sending = true
+                    let response: RequestResponse = await MKAPIRequest(server: appSettings.server, endpoint: "notes/create", postBody: postBody, token: appSettings.token)
+                    sending = false
+                    if response.success == false {
+                        return
+                    }
+                    statusCode = (response.response as! HTTPURLResponse).statusCode
                 }
-                statusCode = (response.response as! HTTPURLResponse).statusCode
+            }, label: {
+                Label("Send", systemImage: "paperplane")
+            })
+            .buttonBorderShape(.roundedRectangle(radius: 12))
+            if (statusCode == 200) {
+                Text("Sent.")
             }
-        }, label: {
-            Label("Send", systemImage: "paperplane")
-        })
-        if (statusCode == 200) {
-            Text("Sent.")
+            else if sending == true {
+                Text("Sending...")
+            }
+            else if statusCode != -1{
+                Text("Error.")
+            }
         }
-        else if sending == true {
-            Text("Sending...")
-        }
-        else if statusCode != -1{
-            Text("Error.")
-        }
+        .navigationTitle("Send Post")
     }
 }
 
 #Preview {
-    PostView()
-        .environmentObject(AppSettings.example)
+    NavigationStack {
+        PostView()
+            .environmentObject(AppSettings.example)
+    }
 }
