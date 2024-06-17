@@ -33,6 +33,7 @@
 		C47ED9D82C1492EE00460523 /* NukeWebP in Frameworks */ = {isa = PBXBuildFile; productRef = C47ED9D72C1492EE00460523 /* NukeWebP */; };
 		C47ED9DA2C1492EE00460523 /* NukeWebPAdvanced in Frameworks */ = {isa = PBXBuildFile; productRef = C47ED9D92C1492EE00460523 /* NukeWebPAdvanced */; };
 		C47ED9DC2C1492EE00460523 /* NukeWebPBasic in Frameworks */ = {isa = PBXBuildFile; productRef = C47ED9DB2C1492EE00460523 /* NukeWebPBasic */; };
+		C48D2BDB2C200BAA009C9CE2 /* PostControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D2BDA2C200BAA009C9CE2 /* PostControls.swift */; };
 		C48D90C12C0C65700001D4FD /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D90C02C0C65700001D4FD /* PostItem.swift */; };
 		C48D90C42C0C701A0001D4FD /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C32C0C701A0001D4FD /* SDWebImageSwiftUI */; };
 		C48D90C92C0C88150001D4FD /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = C48D90C82C0C88150001D4FD /* SDWebImageWebPCoder */; };
@@ -69,6 +70,7 @@
 		C47ED9B12C14384900460523 /* PostTimeShort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTimeShort.swift; sourceTree = "<group>"; };
 		C47ED9B32C1449B700460523 /* OpenLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLink.swift; sourceTree = "<group>"; };
 		C47ED9B52C144C9A00460523 /* PostFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFiles.swift; sourceTree = "<group>"; };
+		C48D2BDA2C200BAA009C9CE2 /* PostControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostControls.swift; sourceTree = "<group>"; };
 		C48D90C02C0C65700001D4FD /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
 		C48F46522C1DD86A004A1D1B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		C48F46542C1DEE48004A1D1B /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				C47072EF2C1388E300CEBE51 /* TimeLineControls.swift */,
 				C47ED9B12C14384900460523 /* PostTimeShort.swift */,
 				C47ED9B52C144C9A00460523 /* PostFiles.swift */,
+				C48D2BDA2C200BAA009C9CE2 /* PostControls.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -261,7 +264,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					C4C0C4C42C0C578A00C61F4C = {
 						CreatedOnToolsVersion = 15.3;
@@ -276,6 +279,7 @@
 				en,
 				"zh-Hans",
 				ja,
+				Base,
 			);
 			mainGroup = C4C0C4B82C0C578A00C61F4C;
 			packageReferences = (
@@ -327,6 +331,7 @@
 				C49C75D32C14D17300BD2EE6 /* MKCreatePostRequest.swift in Sources */,
 				C44F665F2C12026200D5B653 /* AboutView.swift in Sources */,
 				C44F664C2C10F90A00D5B653 /* MKEmoji.swift in Sources */,
+				C48D2BDB2C200BAA009C9CE2 /* PostControls.swift in Sources */,
 				C44F665D2C11E52500D5B653 /* IntroView.swift in Sources */,
 				C44F664A2C10F8ED00D5B653 /* MKNote.swift in Sources */,
 				C428619A2C14C930006842BF /* PostView.swift in Sources */,
@@ -351,6 +356,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -415,6 +421,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -474,7 +481,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.9.0;
+				CURRENT_PROJECT_VERSION = 0.9.1;
 				DEVELOPMENT_ASSET_PATHS = "\"PuffyHub/Preview Content\"";
 				DEVELOPMENT_TEAM = 644FU9Z647;
 				ENABLE_PREVIEWS = NO;
@@ -487,7 +494,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9.0;
+				MARKETING_VERSION = 0.9.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -507,7 +514,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.9.0;
+				CURRENT_PROJECT_VERSION = 0.9.1;
 				DEVELOPMENT_ASSET_PATHS = "\"PuffyHub/Preview Content\"";
 				DEVELOPMENT_TEAM = 644FU9Z647;
 				ENABLE_PREVIEWS = NO;
@@ -520,7 +527,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9.0;
+				MARKETING_VERSION = 0.9.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alikia2x.PuffyHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

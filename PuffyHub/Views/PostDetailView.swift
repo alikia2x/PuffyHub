@@ -84,130 +84,54 @@ struct PostDetailView: View {
     
     var item: MKNote
     var body: some View {
-        ScrollView {
-            if (item.replyId != nil || item.renoteId != nil) {
-                if (parentNote == nil) {
-                    SpinnerView()
-                }
-                else {
-                    NavigationLink(destination: {
-                        PostDetailView(item: parentNote!)
-                    }, label: {
-                        PostItem(item: parentNote!)
-                            .padding(.leading, 5)
-                    })
-                    .buttonStyle(PlainButtonStyle())
-                }
-            }
-            PostItem(item: item)
-            HStack {
-                Button(action: {
-                    showingConfirmationDialog = true
-                }) {
-                    if postDeleted {
-                        Image(systemName: "trash.slash")
+        ScrollViewReader { proxy in
+            ScrollView {
+                if (item.replyId != nil || item.renoteId != nil) {
+                    if (parentNote == nil) {
+                        SpinnerView()
                     }
                     else {
-                        Image(systemName: "trash")
-                    }
-                }
-                .confirmationDialog(Text("Confirm Delete?"),
-                    isPresented: $showingConfirmationDialog,
-                    titleVisibility: .automatic,
-                    actions: {
-                        Button("Delete", role: .destructive) {
-                            Task {
-                                let server = appSettings.server
-                                let token = appSettings.token
-
-                                let postBody = noteDetailRequest(noteId: item.id)
-                                
-                                let response: RequestResponse = await MKAPIRequest(server: server, endpoint: "notes/delete", postBody: postBody, token: token)
-                                if response.success == false || response.response == nil{
-                                    postDeleted = false
-                                    return
-                                }
-                                let statusCode = (response.response as! HTTPURLResponse).statusCode
-                                if statusCode == 204 {
-                                    postDeleted = true
-                                }
-                                else {
-                                    postDeleted = false
-                                }
-                            }
-                        }
-                        Button("Cancel", role: .cancel) { }
-                    }
-                )
-                .disabled(postDeleted)
-                .buttonBorderShape(.roundedRectangle(radius: 6.0))
-                
-                NavigationLink(destination: {
-                    PostView(replyId: item.id)
-                }, label: {
-                    Image(systemName: "arrowshape.turn.up.left")
-                })
-                .buttonBorderShape(.roundedRectangle(radius: 6.0))
-                
-                Button(action: {
-                    Task {
-                        let server = appSettings.server
-                        let token = appSettings.token
-                        var response: RequestResponse
-                        if postHearted {
-                            let postBody = noteDetailRequest(noteId: item.id)
-                            response = await MKAPIRequest(server: server, endpoint: "notes/reactions/delete", postBody: postBody, token: token)
-                        }
-                        else {
-                            let postBody = noteReactRequest(noteId: item.id, reaction: "❤️")
-                            response = await MKAPIRequest(server: server, endpoint: "notes/reactions/create", postBody: postBody, token: token)
-                        }
-                        if response.success == false || response.response == nil{
-                            return
-                        }
-                        let statusCode = (response.response as! HTTPURLResponse).statusCode
-                        if statusCode == 204 {
-                            postHearted.toggle()
-                        }
-                    }
-                }) {
-                    if postHearted {
-                        Image(systemName: "heart.fill")
-                    }
-                    else {
-                        Image(systemName: "heart")
-                    }
-                    
-                }
-                .onAppear(){
-                    postHearted = item.myReaction != nil
-                }
-                .buttonBorderShape(.roundedRectangle(radius: 6.0))
-            }
-            
-            .buttonBorderShape(.roundedRectangle(radius: 10.0))
-            if replyChildrenNote != nil{
-                LazyVStack {
-                    ForEach(0..<replyChildrenNote!.count) { index in
                         NavigationLink(destination: {
-                            PostDetailView(item: replyChildrenNote![index])
+                            PostDetailView(item: parentNote!)
                         }, label: {
-                            PostItem(item: replyChildrenNote![index])
+                            PostItem(item: parentNote!)
                                 .padding(.leading, 5)
                         })
                         .buttonStyle(PlainButtonStyle())
+                        .onAppear(){
+                            proxy.scrollTo(0)
+                        }
+                    }
+                }
+                PostItem(item: item)
+                    .id(0)
+                
+                PostControls(item: item)
+                
+                if replyChildrenNote != nil{
+                    LazyVStack {
+                        ForEach(0..<replyChildrenNote!.count, id: \.self) { index in
+                            NavigationLink(destination: {
+                                PostDetailView(item: replyChildrenNote![index])
+                                    .environmentObject(appSettings)
+                            }, label: {
+                                PostItem(item: replyChildrenNote![index])
+                                    .padding(.leading, 5)
+                            })
+                            .buttonStyle(PlainButtonStyle())
+                        }
                     }
                 }
             }
-        }
-        .task {
-            if item.replyId != nil {
-                await loadParent(noteId: item.replyId!)
+            .task {
+                if item.replyId != nil {
+                    await loadParent(noteId: item.replyId!)
+                }
+                else if item.renoteId != nil {
+                    await loadParent(noteId: item.renoteId!)
+                }
+                await loadChildrenReply(noteId: item.id)
             }
-            else if item.renoteId != nil {
-                await loadParent(noteId: item.renoteId!)
-            }
-            await loadChildrenReply(noteId: item.id)
         }
     }
 }

@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 struct SpinnerView: View {
-  var body: some View {
-    ProgressView()
-        .progressViewStyle(.circular)
-  }
+    var body: some View {
+        ProgressView()
+            .progressViewStyle(.circular)
+    }
 }
 
 public func loadData(sinceId: String? = nil, timeLineData: TimeLineData, appSettings: AppSettings) async {
@@ -63,7 +63,7 @@ public func loadData(sinceId: String? = nil, timeLineData: TimeLineData, appSett
                     else {
                         if let renoteData = try? JSONSerialization.data(withJSONObject: jsonDict["renote"] as Any, options: []),
                            var renoteItem = try? JSONDecoder().decode(MKNote.self, from: renoteData) {
-                            if (postItem.text != nil || postItem.cw != nil || postItem.fileIds != nil) {
+                            if (postItem.text != nil || postItem.cw != nil || postItem.fileIds != []) {
                                 postItem.isReposted = true
                                 postItem.repostUser = postItem.user
                                 tempResults.append(postItem)
@@ -130,6 +130,9 @@ struct TimeLineView: View {
                             .buttonStyle(PlainButtonStyle())
                             Spacer()
                         }
+                    }
+                    if timeLineData.isLoadingMore {
+                        SpinnerView()
                     }
                 }
             } else if timeLineData.loading == false {
