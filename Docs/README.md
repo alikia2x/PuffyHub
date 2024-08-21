@@ -1,8 +1,7 @@
-# Documentation of PuffyHub
+# Documentation for PuffyHub
 
 ## Preparations
 
-SwiftUI provided a simple way to preview views.
-And considering the attribute of PuffyHub, we use real API request to get data during preview.
+SwiftUI offers a straightforward method for previewing views. Given the nature of PuffyHub, we utilize real API requests to fetch data during these previews.
 
-So, please copy `PuffyHub/Debug/AppSettingsExample.swift` to `PuffyHub/Debug/AppSettingsPreview.swift`, fill the instance URL and token before previewing.
+To proceed, please duplicate the file `PuffyHub/Debug/AppSettingsExample.swift` and rename it to `PuffyHub/Debug/AppSettingsPreview.swift`. Ensure you populate this new file with your instance URL and token before initiating the preview.
