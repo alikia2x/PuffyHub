@@ -14,28 +14,36 @@ private let requestPermission = [
     "read:drive",
     "read:favorites",
     "read:following",
-    "read:mutes",
     "read:notifications",
     "read:reactions",
-    "read:user",
-    "write:account",
-    "write:blocks",
     "write:favorites",
     "write:following",
-    "write:mutes",
     "write:notes",
     "write:reactions",
-    "write:user",
 ]
 .joined(separator: ",")
+
+private func genSessionID(length: Int) -> String {
+    let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    var result = ""
+    
+    for _ in 0..<length {
+        let char = letters.randomElement()!
+        result.append(char)
+    }
+    
+    return result
+}
 
 struct LoginQRCode: View {
     @Binding var text: String
     private var doc: QRCode.Document {
-        return QRCode.Document(text)!
+        return QRCode.Document(text, textEncoding: .ascii ,errorCorrection: .low)!
     }
+    var deviceWidth: CGFloat = WKInterfaceDevice.current().screenBounds.size.width
+    var deviceHeight: CGFloat = WKInterfaceDevice.current().screenBounds.size.height
     var body: some View {
-        Image(uiImage: doc.uiImage(CGSize(width: 170, height: 170))!)
+        Image(uiImage: doc.uiImage(CGSize(width: deviceWidth - 16, height: deviceHeight - 72))!)
     }
 }
 
@@ -61,7 +69,7 @@ struct LoginView: View {
                 Spacer()
                 Button(action: {
                     let baseURL = (server.hasPrefix("https://") ? server : "https://" + server)
-                    let UUID = UUID().uuidString
+                    let UUID = genSessionID(length: 7)
                     let finalEndpoint = "/miauth/" + UUID + "/?permission=" + requestPermission + "&name=PuffyHub"
                     guard let QRCodeURL = URL(string: finalEndpoint, relativeTo: URL(string: baseURL)!) else {
                         return
