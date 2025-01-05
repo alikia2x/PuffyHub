@@ -30,8 +30,6 @@ public func loadData(sinceId: String? = nil, timeLineData: TimeLineData, appSett
         withRenotes: true,
         limit: 10,
         untilId: sinceId,
-        // Unfortunately, Misskey's untilId/sinceId doesn't make sense.
-        // All in all, this works.
         allowPartial: true
     )
     DispatchQueue.main.async {
